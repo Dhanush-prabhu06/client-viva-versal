@@ -20,6 +20,7 @@ import ProtectedRoute from "./admin/auth/ProtectedRoute"; // Import ProtectedRou
 import { AuthProvider } from "./admin/auth/AuthProvider"; // Import AuthProvider
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import RoomDetails from "./Screens/RoomDetails";
 function App() {
   return (
     <AuthProvider>
@@ -43,8 +44,9 @@ function App() {
             element={<ProtectedRoute element={<Dashboard />} />}
           />
           <Route path="/register" element={<Register />} />
-          <Route path="/footer" element={<Footer />} /> 
-          <Route path="/header" element={<Header />} /> 
+          <Route path="/footer" element={<Footer />} />
+          <Route path="/header" element={<Header />} />
+          <Route path="/roomDetails" element={<RoomDetails />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
