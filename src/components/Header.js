@@ -17,50 +17,53 @@ const Header = () => {
             <a href="/gallery">Gallery</a>
             <a href="/faq">FAQ</a>
             <a href="/login">Login</a>
-            {/* <a href="/roomDetails">Room Details</a> */}
           </div>
-          <button className="bg-green-600 px-3 rounded-md shadow-5 py-1 ml-24">
+
+          {/* Adjusted "Book Now" button alignment */}
+          <button className="bg-green-600 px-3 rounded-md shadow-5 py-1 ml-auto lg:ml-24 mr-2">
             <a href="/booking">Book Now</a>
           </button>
+
+          {/* Menu Icon */}
           <FiMenu
             onClick={() => setMenu(true)}
             className="text-3xl cursor-pointer lg:hidden"
           />
-          {/* Side menu */}
-          <div
-            className={clsx(
-              "lg:hidden fixed inset-y-0 left-0 z-50 w-40 bg-black/50 backdrop-blur-sm transition duration-200",
-              {
-                "translate-x-0": isSideMenuOpen,
-                "-translate-x-full": !isSideMenuOpen,
-              }
-            )}
-          >
-            <div className="flex justify-between h-16 px-4 py-4 bg-white">
-              <IoCloseOutline
-                onClick={() => setMenu(false)}
-                className="text-3xl cursor-pointer"
-              />
-            </div>
-            <div className="flex flex-col  px-4 py-2 space-y-2 bg-white w-40 h-screen">
-              <a href="/" className="text-gray-900">
-                Home
-              </a>
-              <a href="/contact" className="text-gray-900">
-                Contact
-              </a>
-              <a href="/gallery" className="text-gray-900">
-                Gallery
-              </a>
-              <a href="/faq" className="text-gray-900">
-                FAQ
-              </a>
-              <a href="/login" className="text-gray-900">
-                Login
-              </a>
-              {/* <a href="/roomDetails" className="text-gray-900">Room Details</a> */}
-            </div>
-          </div>
+        </div>
+      </div>
+
+      {/* Side menu */}
+      <div
+        className={clsx(
+          "lg:hidden fixed inset-y-0 left-0 z-50 w-40 bg-black/50 backdrop-blur-sm transition-transform duration-200",
+          {
+            "translate-x-0": isSideMenuOpen,
+            "-translate-x-full": !isSideMenuOpen,
+          }
+        )}
+      >
+        <div className="flex justify-between h-16 px-4 py-4 bg-white">
+          <IoCloseOutline
+            onClick={() => setMenu(false)}
+            className="text-3xl cursor-pointer"
+          />
+        </div>
+        <div className="flex flex-col px-4 py-2 space-y-2 bg-white w-40 h-screen">
+          <a href="/" className="text-gray-900">
+            Home
+          </a>
+          <a href="/contact" className="text-gray-900">
+            Contact
+          </a>
+          <a href="/gallery" className="text-gray-900">
+            Gallery
+          </a>
+          <a href="/faq" className="text-gray-900">
+            FAQ
+          </a>
+          <a href="/login" className="text-gray-900">
+            Login
+          </a>
         </div>
       </div>
     </nav>
