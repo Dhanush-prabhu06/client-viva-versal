@@ -1,0 +1,26 @@
+/* @import "https://unpkg.com/open-props"; */
+/* @import "https://unpkg.com/open-props/normalize.min.css"; */
+
+.scroller{
+    display:grid;
+    gap:var(--size-4);
+    grid-auto-flow:column;
+    grid-auto-columns: auto;
+    overflow-x: auto;
+   overscroll-behavior-inline: contain;
+    padding-left: 25px;
+}
+
+.element{
+    padding: var(--size-6);
+    
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
