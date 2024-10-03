@@ -57,7 +57,7 @@ const Home = () => {
         <br />
         <br />
 
-        <a href="/register">register</a>
+        <a href="/roomDetails">RoomDetails</a>
       </div>
     </>
   );

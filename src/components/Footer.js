@@ -39,7 +39,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div> 
+        </div>
         <div className="flex justify-center mb-4">
           <div className="items-center mt-6 w-[500px] h-[300px] md:w-[500px] md:h-[500px] overflow-hidden rounded-md">
             <Map />

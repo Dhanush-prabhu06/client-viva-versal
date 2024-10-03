@@ -8,14 +8,14 @@ import Faq from "./landing-compo/Faq";
 
 const Landing = () => {
   return (
-    <>
+    <div>
       <Carousel />
       <Welcome />
       <Facilities />
       <Packages />
       <Amenities />
       <Faq />
-    </>
+    </div>
   );
 };
 
