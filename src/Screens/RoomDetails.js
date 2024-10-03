@@ -7,6 +7,160 @@ import { FaArrowAltCircleRight } from "react-icons/fa";
 import { RiStarSFill } from "react-icons/ri";
 import { TiTick } from "react-icons/ti";
 
+import { useState, useEffect } from "react";
+// import {useRef} from 'react'
+
+const images = [
+  {
+    src: "https://www.wordpress.codeinsolution.com/royalea/wp-content/uploads/sites/41/2023/12/luxury-bathroom-design-e1704271632648.jpg",
+  },
+  {
+    src: "https://www.wordpress.codeinsolution.com/royalea/wp-content/uploads/sites/41/2023/12/luxury-room-design-e1704271663510.jpg",
+  },
+  {
+    src: "https://www.wordpress.codeinsolution.com/royalea/wp-content/uploads/sites/41/2023/12/3d-rendering-modern-luxury-bedroom-suite-and-bathroom-2-e1704269779310.jpg",
+  },
+  {
+    src: "https://cache.marriott.com/marriottassets/marriott/KULDT/kuldt-guestroom-0017-hor-clsc.jpg?interpolation=progressive-bilinear&",
+  },
+];
+
+const Roomscomp = () => {
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchMove, setTouchMove] = useState(null);
+  //const carouselRef = useRef(null);
+
+  const totalImages = images.length;
+  const totalSlides = totalImages + 2;
+
+  const moveCarousel = (direction) => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex((prevIndex) => prevIndex + direction);
+  };
+
+  const handleTransitionEnd = () => {
+    if (currentIndex === 0) {
+      setCurrentIndex(totalImages);
+      setIsTransitioning(false);
+    } else if (currentIndex === totalSlides - 1) {
+      setCurrentIndex(1);
+      setIsTransitioning(false);
+    } else {
+      setIsTransitioning(false);
+    }
+  };
+
+  const handleTouchStart = (event) => {
+    setTouchStart(event.touches[0].clientX);
+  };
+
+  const handleTouchMove = (event) => {
+    setTouchMove(event.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchMove) return;
+
+    const swipeDistance = touchMove - touchStart;
+
+    if (Math.abs(swipeDistance) > 50) {
+      moveCarousel(swipeDistance < 0 ? 1 : -1);
+    }
+
+    setTouchStart(null);
+    setTouchMove(null);
+  };
+
+  useEffect(() => {
+    document.addEventListener("touchmove", handleTouchMove);
+    document.addEventListener("touchend", handleTouchEnd);
+
+    return () => {
+      document.removeEventListener("touchmove", handleTouchMove);
+      document.removeEventListener("touchend", handleTouchEnd);
+    };
+  });
+
+  // Auto-slide effect with 2-second delay
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      moveCarousel(1); // Move to the next slide every 2 seconds
+    }, 3500); // CHANGED: Interval set to 2000ms (2 seconds)
+
+    return () => clearInterval(intervalId); // Cleanup the interval on unmount
+  }, [isTransitioning]);
+
+  return (
+    <div className="relative w-full overflow-hidden">
+      {/* Buttons Container */}
+      <div className="absolute inset-0 flex justify-between items-center px-4">
+        {/* Previous Button */}
+        <button
+          onClick={() => moveCarousel(-1)}
+          className="bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 z-20 pointer-events-auto md:p-3"
+        >
+          &#10094;
+        </button>
+
+        {/* Next Button */}
+        <button
+          onClick={() => moveCarousel(1)}
+          className="bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 z-20 pointer-events-auto md:p-3"
+        >
+          &#10095;
+        </button>
+      </div>
+
+      {/* Image Container */}
+      <div
+        className={`flex transition-transform duration-500 ease-in-out`}
+        style={{
+          transform: `translateX(-${currentIndex * 100}%)`,
+          transition: isTransitioning
+            ? "transform 2.5s ease-in-out 0.1s" // CHANGED: Transition set to 1 second
+            : "none",
+        }}
+        onTransitionEnd={handleTransitionEnd}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {/* Cloned last image */}
+        <div className="flex-none w-full">
+          <img
+            src={images[totalImages - 1].src}
+            alt={`${totalImages}`}
+            className="object-cover w-full h-[300px] md:h-[500px]"
+          />
+        </div>
+
+        {images.map((image, index) => (
+          <div key={index} className="flex-none w-full">
+            <img
+              src={image.src}
+              alt={`${index + 1}`}
+              className="object-cover w-full h-[300px] md:h-[500px]"
+              loading="lazy"
+            />
+          </div>
+        ))}
+
+        {/* Cloned first image */}
+        <div className="flex-none w-full">
+          <img
+            src={images[0].src}
+            alt="..."
+            className="object-cover w-full h-[300px] md:h-[500px]"
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const RoomDetails = () => {
   return (
     <div className="">
@@ -24,50 +178,11 @@ const RoomDetails = () => {
           </h2>
         </div>
       </div>
-
-      <br />
-      <br />
-      <br />
-
-      <br />
-      <div className=" grid lg:grid-cols-1">
-        <div className=" grid lg:grid-cols-4 justify-evenly">
-          <div className="  w-80 flex flex-col items-center mb-12">
-            <img
-              className=" w-80 h-44"
-              src="https://www.wordpress.codeinsolution.com/royalea/wp-content/uploads/sites/41/2023/12/luxury-bathroom-design-e1704271632648.jpg"
-              alt=""
-            />
-          </div>
-
-          <div className=" w-80 flex flex-col items-center mb-12">
-            <img
-              className=" w-80 h-44"
-              src="https://www.wordpress.codeinsolution.com/royalea/wp-content/uploads/sites/41/2023/12/luxury-room-design-e1704271663510.jpg"
-              alt=""
-            />
-          </div>
-
-          <div className=" w-80 flex flex-col items-center mb-12">
-            <img
-              className=" w-80 h-44 "
-              src="https://www.wordpress.codeinsolution.com/royalea/wp-content/uploads/sites/41/2023/12/3d-rendering-modern-luxury-bedroom-suite-and-bathroom-2-e1704269779310.jpg"
-              alt=""
-            />
-          </div>
-
-          <div className=" w-80 flex flex-col items-center mb-12">
-            <img
-              className=" w-80 h-44 "
-              src="https://cache.marriott.com/marriottassets/marriott/KULDT/kuldt-guestroom-0017-hor-clsc.jpg?interpolation=progressive-bilinear&"
-              alt=""
-            />
-          </div>
-        </div>
-        <br />
+      <div className="mt-10  text-center mb-5">
+        <p className=" text-5xl  pl-10 text">Comfort Room </p>
       </div>
-
-      <div>
+      <Roomscomp />
+      <div className="mt-10">
         <p className=" text-5xl  pl-10 ">Comfort Room </p>
       </div>
       <br />
