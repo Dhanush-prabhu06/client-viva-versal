@@ -1,7 +1,5 @@
 import React from "react";
 import "../../assets/styleImports.css";
-import calmImage from "../../assets/welcome/forest.png";
-import relaxImg from "../../assets/welcome/sunbathing.png";
 
 const Welcome = () => {
   return (
@@ -38,7 +36,11 @@ const Welcome = () => {
 
         <div className="  w-full flex-wrap grid grid-rows-1 grid-flow-col justify-center gap-6 pl-[1.5vw]  md:pl-1">
           <div className=" w-44 h-[265px] flex items-center flex-col md:ml-[-4vh] md:mr-[10vw] ">
-            <img className=" w-24 h-24 " src={calmImage} alt="" />
+            <img
+              className=" w-24 h-24 "
+              src="https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/welcome%2Fforest.png?alt=media&token=27b304ae-1c99-49a0-8b40-47c1fca5f3cb"
+              alt=""
+            />
             <p className=" text-3xl text-center font-bold mini-tital ">
               Reconnect with Nature
             </p>
@@ -48,7 +50,11 @@ const Welcome = () => {
           </div>
 
           <div className=" w-44 h-[265px] items-center  flex flex-col">
-            <img className=" w-24 h-24 pb-1 pt-[-2]" src={relaxImg} alt="" />
+            <img
+              className=" w-24 h-24 pb-1 pt-[-2]"
+              src="https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/welcome%2Fsunbathing.png?alt=media&token=f918088b-256f-49c1-8714-f174706bf2a6"
+              alt=""
+            />
             <p className=" text-3xl font-bold text-center mini-tital pt-[-5px] ">
               Classy Facilities
             </p>
@@ -58,11 +64,11 @@ const Welcome = () => {
           </div>
         </div>
       </div>
-      <div className="md:max-lg:flex animation">
+      <div className="md:max-lg:flex animation w-full h-auto">
         <img
-          src="https://www.wordpress.codeinsolution.com/royalea/wp-content/uploads/sites/41/2023/12/umbrella-and-chair-around-outdoor-swimming-pool-in-hotel-resort-e1704270008743.jpg"
+          src="https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/welcome%2FIMG_5774.webp?alt=media&token=8a119872-ea54-4820-8344-8e1f8e996342"
           alt=".."
-          className=" px-[10px] w-full object-cover "
+          className=" px-[10px] w-full    object-cover "
         />
       </div>
     </div>

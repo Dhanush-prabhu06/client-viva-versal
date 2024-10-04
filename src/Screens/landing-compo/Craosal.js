@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
+import LazyLoad from "react-lazyload";
 // import {useRef} from 'react'
 
 const images = [
   {
-    src: require("../../assets/images/img3.jpg"),
+    src: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/crousal%2FIMG_5709.avif?alt=media&token=c4143750-370a-4946-ad4c-9f5c0e3ee3a8",
   },
   {
-    src: require("../../assets/images/img1.jpg"),
+    src: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/crousal%2FIMG_5716.webp?alt=media&token=1fd42d76-5e82-4d54-b66b-97c5505fca72",
   },
   {
-    src: require("../../assets/images/img2.jpg"),
+    src: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/crousal%2FIMG_5782.webp?alt=media&token=925a176d-157c-4f58-86cb-8368fd1de507",
   },
   {
-    src: "https://gos3.ibcdn.com/ea53f190d7a811e580bb001ec9b85d13.png",
+    src: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/crousal%2Fgoogle-download-evening.avif?alt=media&token=14aac8d4-ae45-4c34-af7c-d4454dfd446c",
   },
 ];
 const Carousel = () => {
@@ -120,31 +121,37 @@ const Carousel = () => {
       >
         {/* Cloned last image */}
         <div className="flex-none w-full">
-          <img
-            src={images[totalImages - 1].src}
-            alt={`${totalImages}`}
-            className="object-cover w-full h-[300px] md:h-[500px]"
-          />
+          <LazyLoad height={200} offset={100}>
+            <img
+              src={images[totalImages - 1].src}
+              alt={`${totalImages}`}
+              className="object-cover w-full h-[300px] md:h-[500px]"
+            />
+          </LazyLoad>
         </div>
 
         {images.map((image, index) => (
           <div key={index} className="flex-none w-full">
-            <img
-              src={image.src}
-              alt={`${index + 1}`}
-              className="object-cover w-full h-[300px] md:h-[500px]"
-              loading="lazy"
-            />
+            <LazyLoad height={200} offset={100}>
+              <img
+                src={image.src}
+                alt={`${index + 1}`}
+                className="object-cover w-full h-[300px] md:h-[500px]"
+                loading="lazy"
+              />
+            </LazyLoad>
           </div>
         ))}
 
         {/* Cloned first image */}
         <div className="flex-none w-full">
-          <img
-            src={images[0].src}
-            alt="..."
-            className="object-cover w-full h-[300px] md:h-[500px]"
-          />
+          <LazyLoad height={200} offset={100}>
+            <img
+              src={images[0].src}
+              alt="..."
+              className="object-cover w-full h-[300px] md:h-[500px]"
+            />
+          </LazyLoad>
         </div>
       </div>
     </div>
