@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import LazyLoad from "react-lazyload";
-// import {useRef} from 'react'
 
 const images = [
   {
@@ -16,12 +15,13 @@ const images = [
     src: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/crousal%2Fgoogle-download-evening.avif?alt=media&token=14aac8d4-ae45-4c34-af7c-d4454dfd446c",
   },
 ];
+
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [touchStart, setTouchStart] = useState(null);
   const [touchMove, setTouchMove] = useState(null);
-  //const carouselRef = useRef(null);
 
   const totalImages = images.length;
   const totalSlides = totalImages + 2;
@@ -78,11 +78,15 @@ const Carousel = () => {
   // Auto-slide effect with 2-second delay
   useEffect(() => {
     const intervalId = setInterval(() => {
-      moveCarousel(1); // Move to the next slide every 2 seconds
-    }, 3500); // CHANGED: Interval set to 2000ms (2 seconds)
+      moveCarousel(1); // Move to the next slide every 3.5 seconds
+    }, 3500);
 
     return () => clearInterval(intervalId); // Cleanup the interval on unmount
   }, [isTransitioning]);
+
+  const handleImageLoad = () => {
+    setLoading(false);
+  };
 
   return (
     <div className="relative w-full overflow-hidden">
@@ -111,7 +115,7 @@ const Carousel = () => {
         style={{
           transform: `translateX(-${currentIndex * 100}%)`,
           transition: isTransitioning
-            ? "transform 2.5s ease-in-out 0.1s" // CHANGED: Transition set to 1 second
+            ? "transform 2.5s ease-in-out 0.1s"
             : "none",
         }}
         onTransitionEnd={handleTransitionEnd}
@@ -122,23 +126,39 @@ const Carousel = () => {
         {/* Cloned last image */}
         <div className="flex-none w-full">
           <LazyLoad height={200} offset={100}>
-            <img
-              src={images[totalImages - 1].src}
-              alt={`${totalImages}`}
-              className="object-cover w-full h-[300px] md:h-[500px]"
-            />
+            <div className="relative">
+              {loading && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-10 h-10 border-4 border-t-transparent border-gray-500 rounded-full animate-spin"></div>
+                </div>
+              )}
+              <img
+                src={images[totalImages - 1].src}
+                alt={`${totalImages}`}
+                className="object-cover w-full h-[300px] md:h-[500px]"
+                onLoad={handleImageLoad}
+              />
+            </div>
           </LazyLoad>
         </div>
 
         {images.map((image, index) => (
           <div key={index} className="flex-none w-full">
             <LazyLoad height={200} offset={100}>
-              <img
-                src={image.src}
-                alt={`${index + 1}`}
-                className="object-cover w-full h-[300px] md:h-[500px]"
-                loading="lazy"
-              />
+              <div className="relative">
+                {loading && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-10 h-10 border-4 border-t-transparent border-gray-500 rounded-full animate-spin"></div>
+                  </div>
+                )}
+                <img
+                  src={image.src}
+                  alt={`${index + 1}`}
+                  className="object-cover w-full h-[300px] md:h-[500px]"
+                  onLoad={handleImageLoad}
+                  loading="lazy"
+                />
+              </div>
             </LazyLoad>
           </div>
         ))}
@@ -146,11 +166,19 @@ const Carousel = () => {
         {/* Cloned first image */}
         <div className="flex-none w-full">
           <LazyLoad height={200} offset={100}>
-            <img
-              src={images[0].src}
-              alt="..."
-              className="object-cover w-full h-[300px] md:h-[500px]"
-            />
+            <div className="relative">
+              {loading && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-10 h-10 border-4 border-t-transparent border-gray-500 rounded-full animate-spin"></div>
+                </div>
+              )}
+              <img
+                src={images[0].src}
+                alt="..."
+                className="object-cover w-full h-[300px] md:h-[500px]"
+                onLoad={handleImageLoad}
+              />
+            </div>
           </LazyLoad>
         </div>
       </div>
