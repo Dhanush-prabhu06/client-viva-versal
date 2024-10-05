@@ -158,6 +158,7 @@ const Testimonial = () => {
       <div className="w-full md:w-1/2 h-96 p-6">
         <img
           src="https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/crousal%2FIMG_5782.webp?alt=media&token=925a176d-157c-4f58-86cb-8368fd1de507"
+          alt="main-image"
           className="bg-cover bg-center w-full h-full rounded-lg shadow-lg"
         />
       </div>
