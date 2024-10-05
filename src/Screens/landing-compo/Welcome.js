@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../assets/styleImports.css";
+import LazyLoad from "react-lazyload";
 
 const Welcome = () => {
+  const [isLoading, setIsLoading] = useState(true); // State to track image loading
+
+  // Image loading handler
+  const handleImageLoad = () => {
+    setIsLoading(false); // Set loading to false once the image is loaded
+  };
+
   return (
     <div className="lg:flex">
       <div className="lg:w-10/12 flex flex-col justify-center items-center">
         {/* This will center the left content horizontally */}
 
-        {/* pl */}
         <div className="items-center">
           <h1
-            className="uppercase text-green-700 pl-4 tracking-widest"
+            className="uppercase text-green-700 tracking-widest"
             style={{ wordSpacing: "2px" }}
           >
-            WELCOME TO VIVA FERNLEAF
+            WELCOME TO NEW VIVA FERNLEAF RESORT
           </h1>
         </div>
         <br />
@@ -66,12 +73,29 @@ const Welcome = () => {
           </div>
         </div>
       </div>
+
       <div className="md:max-lg:flex w-full h-auto">
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/welcome%2FIMG_5774.webp?alt=media&token=8a119872-ea54-4820-8344-8e1f8e996342"
-          alt=".."
-          className="px-[10px] w-full object-cover object-center lg:h-[750px] h-[400px] pb-8 "
-        />
+        {/* Loading effect for the image */}
+        {isLoading && (
+          <div className="w-full h-[400px] lg:h-[750px] flex justify-center items-center">
+            <div
+              className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full"
+              role="status"
+            >
+              <span className="visually-hidden"></span>
+            </div>
+          </div>
+        )}
+        <LazyLoad height={200} offset={100}>
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/welcome%2FIMG_5774.webp?alt=media&token=8a119872-ea54-4820-8344-8e1f8e996342"
+            alt=".."
+            className={`px-[10px] w-full object-cover object-center lg:h-[750px] h-[400px] pb-8 ${
+              isLoading ? "hidden" : "block"
+            }`}
+            onLoad={handleImageLoad} // Call the handler when the image is loaded
+          />
+        </LazyLoad>
       </div>
     </div>
   );

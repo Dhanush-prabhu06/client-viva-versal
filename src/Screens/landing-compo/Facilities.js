@@ -1,32 +1,38 @@
 import React, { useState } from "react";
 
-import { FaRegSnowflake, FaWifi } from "react-icons/fa";
-import { GiKnifeFork } from "react-icons/gi";
+import {
+  FaRegSnowflake,
+  FaWifi,
+  FaTableTennis,
+  FaChess,
+  FaBicycle,
+} from "react-icons/fa";
+import { GiKnifeFork, GiShuttlecock, GiBowArrow } from "react-icons/gi";
 import { FaMountainSun } from "react-icons/fa6";
 import { LiaSwimmingPoolSolid } from "react-icons/lia";
 import { IoBedOutline, IoCarSport } from "react-icons/io5";
 import { RiCustomerServiceFill } from "react-icons/ri";
+import { IoMdBonfire } from "react-icons/io";
+import { ImAidKit } from "react-icons/im";
+import { MdSportsCricket } from "react-icons/md";
+
+import KidPlay from "../../assets/facilitiesImg/playground.png";
+
 import "./styleImports.css";
 
 const Facilities = () => {
   const [cards] = useState([
     {
       icon: (
-        <FaRegSnowflake className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
+        <IoBedOutline className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-900" />
       ),
-      title: "Air Conditioner",
+      title: "Room Service",
     },
     {
       icon: (
         <GiKnifeFork className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-green-700" />
       ),
-      title: "Breakfast",
-    },
-    {
-      icon: (
-        <FaWifi className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-green-700" />
-      ),
-      title: "Fiber Wifi",
+      title: "Restaurant",
     },
     {
       icon: (
@@ -36,27 +42,15 @@ const Facilities = () => {
     },
     {
       icon: (
-        <IoBedOutline className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-900" />
+        <FaWifi className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
       ),
-      title: "Room Service",
+      title: "Fiber Wifi",
     },
     {
       icon: (
-        <IoCarSport className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-green-700" />
+        <IoCarSport className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
       ),
       title: "Parking Space",
-    },
-    {
-      icon: (
-        <RiCustomerServiceFill className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-green-700" />
-      ),
-      title: "Service",
-    },
-    {
-      icon: (
-        <FaMountainSun className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-900" />
-      ),
-      title: "Hill Station",
     },
     {
       icon: (
@@ -64,95 +58,96 @@ const Facilities = () => {
       ),
       title: "Air Conditioner",
     },
+
     {
       icon: (
-        <GiKnifeFork className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-green-700" />
-      ),
-      title: "Breakfast",
-    },
-    {
-      icon: (
-        <FaWifi className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-green-700" />
-      ),
-      title: "Fiber Wifi",
-    },
-    {
-      icon: (
-        <LiaSwimmingPoolSolid className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-900" />
-      ),
-      title: "Pool",
-    },
-    {
-      icon: (
-        <IoBedOutline className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-900" />
-      ),
-      title: "Room Service",
-    },
-    {
-      icon: (
-        <IoCarSport className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-green-700" />
-      ),
-      title: "Parking Space",
-    },
-    {
-      icon: (
-        <RiCustomerServiceFill className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-green-700" />
+        <RiCustomerServiceFill className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
       ),
       title: "Service",
     },
     {
       icon: (
-        <FaMountainSun className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-900" />
+        <FaMountainSun className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
       ),
       title: "Hill Station",
     },
     {
       icon: (
-        <FaRegSnowflake className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
+        <FaTableTennis className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
       ),
-      title: "Air Conditioner",
+      title: "Table Tennis",
     },
     {
       icon: (
-        <GiKnifeFork className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-green-700" />
+        <GiShuttlecock className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
       ),
-      title: "Breakfast",
+      title: "Badmiton",
     },
     {
       icon: (
-        <FaWifi className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-green-700" />
+        <FaChess className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
       ),
-      title: "Fiber Wifi",
+      title: "Chess",
     },
     {
       icon: (
-        <LiaSwimmingPoolSolid className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-900" />
+        <GiBowArrow className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
+      ),
+      title: "Archary",
+    },
+    {
+      icon: (
+        <IoMdBonfire className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
+      ),
+      title: "Bonfire",
+    },
+    {
+      icon: (
+        <ImAidKit className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-green-700" />
+      ),
+      title: "Health Care",
+    },
+    {
+      icon: (
+        <MdSportsCricket className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
+      ),
+      title: "Cricket",
+    },
+    {
+      icon: (
+        <FaBicycle className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
+      ),
+      title: "Roap Cycle",
+    },
+    {
+      icon: (
+        <LiaSwimmingPoolSolid className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
       ),
       title: "Pool",
     },
     {
       icon: (
-        <IoBedOutline className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-900" />
+        <LiaSwimmingPoolSolid className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
       ),
-      title: "Room Service",
+      title: "Pool",
     },
     {
       icon: (
-        <IoCarSport className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-green-700" />
+        <LiaSwimmingPoolSolid className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
       ),
-      title: "Parking Space",
+      title: "Pool",
     },
     {
       icon: (
-        <RiCustomerServiceFill className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-green-700" />
+        <LiaSwimmingPoolSolid className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
       ),
-      title: "Service",
+      title: "Pool",
     },
     {
       icon: (
-        <FaMountainSun className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-900" />
+        <LiaSwimmingPoolSolid className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
       ),
-      title: "Hill Station",
+      title: "Pool",
     },
   ]);
 
