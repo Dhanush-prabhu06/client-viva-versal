@@ -5,6 +5,7 @@ import Facilities from "./landing-compo/Facilities";
 import Packages from "./landing-compo/Packages";
 import Amenities from "./landing-compo/Amanities";
 import Faq from "./landing-compo/Faq";
+import Testimonial from "./landing-compo/Testimonial";
 
 const Landing = () => {
   return (
@@ -20,7 +21,7 @@ const Landing = () => {
       <Packages />
       <br />
       <br />
-      <Amenities />
+      <Testimonial />
       <br />
       <Faq />
     </div>

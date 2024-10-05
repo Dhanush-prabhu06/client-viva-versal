@@ -35,6 +35,8 @@ const Packages = () => {
     setCurrentIndex(newIndex);
     const carousel = carouselRef.current;
     const cardWidth = carousel.clientWidth;
+    // Delay by setting a slower transition duration
+    carousel.style.transition = "scroll 1s ease"; // 1 second scroll delay
     carousel.scrollTo({
       left: cardWidth * newIndex,
       behavior: "smooth",
@@ -58,7 +60,7 @@ const Packages = () => {
       if (Math.abs(newIndex - currentIndex) > 0) {
         setCurrentIndex(newIndex);
       }
-    }, 100); // 100ms debounce delay
+    }, 200); // 100ms debounce delay
   }, [currentIndex]);
 
   useEffect(() => {
@@ -143,7 +145,7 @@ const Packages = () => {
                   <p>{room.price}</p>
                   <a
                     href={room.link}
-                    className="bg-green-700 px-2 py-1 mt-2 inline-block"
+                    className="bg-green-700 px-2 py-1 mt-2 inline-block rounded-sm "
                   >
                     View More
                   </a>
@@ -169,7 +171,7 @@ const Packages = () => {
                 <p>{room.price}</p>
                 <a
                   href={room.link}
-                  className="bg-green-700 px-2 py-1 mt-2 inline-block"
+                  className="bg-green-700 px-2 py-1 mt-2 inline-block rounded-sm"
                 >
                   View More
                 </a>

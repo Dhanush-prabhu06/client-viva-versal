@@ -7,8 +7,10 @@ import {
   deleteDoc,
   updateDoc,
 } from "firebase/firestore";
+import { useAuth } from "./auth/AuthProvider"; // Import the useAuth hook
 
 const Dashboard = () => {
+  const { logout } = useAuth(); // Access the logout function from AuthProvider
   const [reservations, setReservations] = useState({
     rooms: [],
     dayOut: [],
@@ -180,6 +182,16 @@ const Dashboard = () => {
         Reservations Dashboard
       </h1>
 
+      {/* Logout Button */}
+      <div className="text-right mb-4">
+        <button
+          onClick={logout} // Call the logout function when clicked
+          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700"
+        >
+          Logout
+        </button>
+      </div>
+
       {/* Tabs for selecting reservation type */}
       <div className="flex space-x-4 mb-4">
         <button
@@ -263,7 +275,7 @@ const Dashboard = () => {
                     <option value="rejected">Rejected</option>
                   </select>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap space-x-4">
+                <td className="px-6 py-4 whitespace-nowrap">
                   <button
                     onClick={() =>
                       handleDelete(
@@ -275,22 +287,13 @@ const Dashboard = () => {
                           : "EventReservations"
                       )
                     }
-                    className="text-red-500 hover:text-red-700"
+                    className="text-red-500 hover:underline"
                   >
                     Delete
                   </button>
                   <button
-                    onClick={() =>
-                      handleViewMore(
-                        reservation,
-                        activeTab === "rooms"
-                          ? "rooms"
-                          : activeTab === "dayOut"
-                          ? "dayOut"
-                          : "events"
-                      )
-                    }
-                    className="text-blue-500 hover:text-blue-700"
+                    onClick={() => handleViewMore(reservation, activeTab)}
+                    className="ml-4 text-blue-500 hover:underline"
                   >
                     View More
                   </button>
@@ -301,7 +304,7 @@ const Dashboard = () => {
         </table>
       </div>
 
-      {/* Detailed view for selected reservation */}
+      {/* Render detailed information when a reservation is selected */}
       {renderDetails()}
     </div>
   );
