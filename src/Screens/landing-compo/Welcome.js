@@ -3,24 +3,26 @@ import "../../assets/styleImports.css";
 
 const Welcome = () => {
   return (
-    <div className=" lg:flex ">
-      <div className="lg:w-10/12">
+    <div className="lg:flex">
+      <div className="lg:w-10/12 flex flex-col justify-center items-center">
+        {/* This will center the left content horizontally */}
+
         {/* pl */}
-        <div className=" items-center">
+        <div className="items-center">
           <h1
-            className=" uppercase text-green-700 pl-4 tracking-widest"
+            className="uppercase text-green-700 pl-4 tracking-widest"
             style={{ wordSpacing: "2px" }}
           >
             WELCOME TO VIVA FERNLEAF
           </h1>
         </div>
         <br />
-        <div className=" title text-4xl text-gray-800 px-2">
+        <div className="title text-4xl text-gray-800 px-2">
           Step into a world of luxury and tranquility
         </div>
         <br />
-        <div className=" justify-between flex">
-          <div className=" text-base text-center md:text-left text-wrap text-gray-600 px-2">
+        <div className="justify-between flex">
+          <div className="text-base text-center md:text-left text-wrap text-gray-600 px-2">
             <p>
               Nestled in a lush, green environment, New Viva Fernleaf Resort is
               your sanctuary of calm. Enjoy the perfect blend of natural beauty
@@ -34,41 +36,41 @@ const Welcome = () => {
         </div>
         <br />
 
-        <div className="  w-full flex-wrap grid grid-rows-1 grid-flow-col justify-center gap-6 pl-[1.5vw]  md:pl-1">
-          <div className=" w-44 h-[265px] flex items-center flex-col md:ml-[-4vh] md:mr-[10vw] ">
+        <div className="w-full flex-wrap grid grid-rows-1 grid-flow-col justify-center gap-6 pl-[1.5vw] md:pl-1">
+          <div className="w-44 h-[265px] flex items-center flex-col md:ml-[-4vh] md:mr-[10vw]">
             <img
-              className=" w-24 h-24 "
+              className="w-24 h-24"
               src="https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/welcome%2Fforest.png?alt=media&token=27b304ae-1c99-49a0-8b40-47c1fca5f3cb"
-              alt=""
+              alt="Reconnect with Nature"
             />
-            <p className=" text-3xl text-center font-bold mini-tital ">
+            <p className="text-3xl text-center font-bold mini-tital">
               Reconnect with Nature
             </p>
-            <p className=" text-base text-gray-600 pt-2 text-wrap text-center ">
+            <p className="text-base text-gray-600 pt-2 text-wrap text-center">
               Embrace the serene beauty of our lush surroundings
             </p>
           </div>
 
-          <div className=" w-44 h-[265px] items-center  flex flex-col">
+          <div className="w-44 h-[265px] items-center flex flex-col">
             <img
-              className=" w-24 h-24 pb-1 pt-[-2]"
+              className="w-24 h-24 pb-1 pt-[-2]"
               src="https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/welcome%2Fsunbathing.png?alt=media&token=f918088b-256f-49c1-8714-f174706bf2a6"
-              alt=""
+              alt="Classy Facilities"
             />
-            <p className=" text-3xl font-bold text-center mini-tital pt-[-5px] ">
+            <p className="text-3xl font-bold text-center mini-tital pt-[-5px]">
               Classy Facilities
             </p>
-            <p className=" text-center  text-gray-600 pt-2 ">
+            <p className="text-center text-gray-600 pt-2">
               Pamper yourself with a range of relaxing amenities
             </p>
           </div>
         </div>
       </div>
-      <div className="md:max-lg:flex animation w-full h-auto">
+      <div className="md:max-lg:flex w-full h-auto">
         <img
           src="https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/welcome%2FIMG_5774.webp?alt=media&token=8a119872-ea54-4820-8344-8e1f8e996342"
           alt=".."
-          className=" px-[10px] w-full    object-cover "
+          className="px-[10px] w-full object-cover object-center lg:h-[750px] h-[400px] pb-8 "
         />
       </div>
     </div>

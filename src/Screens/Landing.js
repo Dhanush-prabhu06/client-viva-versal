@@ -10,10 +10,18 @@ const Landing = () => {
   return (
     <div>
       <Carousel />
+      <br />
+
       <Welcome />
+
       <Facilities />
+      <br />
+      <br />
       <Packages />
+      <br />
+      <br />
       <Amenities />
+      <br />
       <Faq />
     </div>
   );
