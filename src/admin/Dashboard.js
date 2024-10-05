@@ -208,96 +208,98 @@ const Dashboard = () => {
         </button>
       </div>
 
-      {/* Table for displaying reservations */}
-      <table className="min-w-full divide-y divide-gray-200">
-        <thead>
-          <tr>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Name
-            </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Phone
-            </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Status
-            </th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Actions
-            </th>
-          </tr>
-        </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
-          {(reservations[activeTab] || []).map((reservation) => (
-            <tr key={reservation.id}>
-              <td className="px-6 py-4 whitespace-nowrap">
-                {reservation.name}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                {reservation.phoneNumber}
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap">
-                <select
-                  value={reservation.status || "pending"}
-                  onChange={(e) =>
-                    handleStatusChange(
-                      reservation.id,
-                      activeTab === "rooms"
-                        ? "RoomReservations"
-                        : activeTab === "dayOut"
-                        ? "DayOutPackages"
-                        : "EventReservations",
-                      e.target.value
-                    )
-                  }
-                  className={`p-2 rounded ${
-                    reservation.status === "approved"
-                      ? "bg-green-500"
-                      : reservation.status === "rejected"
-                      ? "bg-red-500"
-                      : "bg-yellow-500"
-                  }`}
-                >
-                  <option value="pending">Pending</option>
-                  <option value="approved">Approved</option>
-                  <option value="rejected">Rejected</option>
-                </select>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap space-x-4">
-                <button
-                  onClick={() =>
-                    handleDelete(
-                      reservation.id,
-                      activeTab === "rooms"
-                        ? "RoomReservations"
-                        : activeTab === "dayOut"
-                        ? "DayOutPackages"
-                        : "EventReservations"
-                    )
-                  }
-                  className="text-red-500 hover:text-red-700"
-                >
-                  Delete
-                </button>
-                <button
-                  onClick={() =>
-                    handleViewMore(
-                      reservation,
-                      activeTab === "rooms"
-                        ? "rooms"
-                        : activeTab === "dayOut"
-                        ? "dayOut"
-                        : "events"
-                    )
-                  }
-                  className="text-blue-500 hover:text-blue-700"
-                >
-                  View More
-                </button>
-              </td>
+      {/* Scrollable Table for mobile view */}
+      <div className="overflow-x-auto">
+        <table className="min-w-full divide-y divide-gray-200">
+          <thead>
+            <tr>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Name
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Phone
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Status
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Actions
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="bg-white divide-y divide-gray-200">
+            {(reservations[activeTab] || []).map((reservation) => (
+              <tr key={reservation.id}>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {reservation.name}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  {reservation.phoneNumber}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <select
+                    value={reservation.status || "pending"}
+                    onChange={(e) =>
+                      handleStatusChange(
+                        reservation.id,
+                        activeTab === "rooms"
+                          ? "RoomReservations"
+                          : activeTab === "dayOut"
+                          ? "DayOutPackages"
+                          : "EventReservations",
+                        e.target.value
+                      )
+                    }
+                    className={`p-2 rounded ${
+                      reservation.status === "approved"
+                        ? "bg-green-500"
+                        : reservation.status === "rejected"
+                        ? "bg-red-500"
+                        : "bg-yellow-500"
+                    }`}
+                  >
+                    <option value="pending">Pending</option>
+                    <option value="approved">Approved</option>
+                    <option value="rejected">Rejected</option>
+                  </select>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap space-x-4">
+                  <button
+                    onClick={() =>
+                      handleDelete(
+                        reservation.id,
+                        activeTab === "rooms"
+                          ? "RoomReservations"
+                          : activeTab === "dayOut"
+                          ? "DayOutPackages"
+                          : "EventReservations"
+                      )
+                    }
+                    className="text-red-500 hover:text-red-700"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    onClick={() =>
+                      handleViewMore(
+                        reservation,
+                        activeTab === "rooms"
+                          ? "rooms"
+                          : activeTab === "dayOut"
+                          ? "dayOut"
+                          : "events"
+                      )
+                    }
+                    className="text-blue-500 hover:text-blue-700"
+                  >
+                    View More
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {/* Detailed view for selected reservation */}
       {renderDetails()}

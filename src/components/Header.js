@@ -10,7 +10,12 @@ const Header = () => {
     <nav className="sticky z-10 shadow-5-strong top-0 bg-slate-400 bg-opacity-30 backdrop-blur-xl ">
       <div className="max-w-5xl mx-auto px-1">
         <div className="flex items-center justify-between h-16">
-          <span className="text-2xl text-gray-900 font-semibold">Logo</span>
+          <a href="/">
+            <span className="text-2xl text-gray-900 font-semibold">
+              Viva Fernleaf
+            </span>
+          </a>
+
           <div className="hidden lg:flex space-x-4 text-gray-900">
             <a href="/">Home</a>
             <a href="/contact">Contact</a>

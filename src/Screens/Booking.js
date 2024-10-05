@@ -4,7 +4,7 @@ import { db } from "../firebase/Config";
 import { collection, addDoc } from "firebase/firestore";
 
 const Booking = () => {
-  const [reservationType, setReservationType] = useState("");
+  const [reservationType, setReservationType] = useState("rooms");
   const [formData, setFormData] = useState({
     name: "",
     phoneNumber: "",

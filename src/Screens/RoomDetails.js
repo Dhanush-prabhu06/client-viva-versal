@@ -204,7 +204,6 @@ const RoomDetails = () => {
       <div className="border-t border-gray-300 my-4"></div>
       <div className=" pl-10 text-wrap grid lg:grid-cols-1">
         <p className=" w-2/3">
-          {" "}
           Step into the luxurious comfort room of our resort and embark on a
           journey of relaxation and indulgence unlike any other. Designed with
           meticulous attention to detail and adorned with opulent furnishings,
@@ -228,7 +227,6 @@ const RoomDetails = () => {
               <p className=" text-5xl mt-5">Room Overview</p>
               <div className=" w-full">
                 <p className=" text-base text-wrap mt-4 w-2/3">
-                  {" "}
                   Welcome to our charming and inviting retreat! Our room offers
                   a perfect blend of comfort and style, providing a serene
                   sanctuary for your stay. Step into a space adorned with
@@ -291,9 +289,7 @@ const RoomDetails = () => {
             <div className=" mb-12 p-11 min-w-96 min-h-80 flex flex-col ">
               <div className="flex">
                 <div>
-                  <p className=" text-black font-semibold text-2xl">
-                    Check-in{" "}
-                  </p>
+                  <p className=" text-black font-semibold text-2xl">Check-in</p>
                 </div>
               </div>
 
