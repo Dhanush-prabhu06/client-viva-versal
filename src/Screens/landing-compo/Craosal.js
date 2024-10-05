@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import LazyLoad from "react-lazyload";
 
 const images = [
@@ -26,11 +26,14 @@ const Carousel = () => {
   const totalImages = images.length;
   const totalSlides = totalImages + 2;
 
-  const moveCarousel = (direction) => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex((prevIndex) => prevIndex + direction);
-  };
+  const moveCarousel = useCallback(
+    (direction) => {
+      if (isTransitioning) return;
+      setIsTransitioning(true);
+      setCurrentIndex((prevIndex) => prevIndex + direction);
+    },
+    [isTransitioning]
+  );
 
   const handleTransitionEnd = () => {
     if (currentIndex === 0) {
@@ -52,7 +55,7 @@ const Carousel = () => {
     setTouchMove(event.touches[0].clientX);
   };
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = useCallback(() => {
     if (!touchStart || !touchMove) return;
 
     const swipeDistance = touchMove - touchStart;
@@ -63,7 +66,7 @@ const Carousel = () => {
 
     setTouchStart(null);
     setTouchMove(null);
-  };
+  }, [touchMove, touchStart, moveCarousel]);
 
   useEffect(() => {
     document.addEventListener("touchmove", handleTouchMove);
@@ -73,16 +76,16 @@ const Carousel = () => {
       document.removeEventListener("touchmove", handleTouchMove);
       document.removeEventListener("touchend", handleTouchEnd);
     };
-  });
+  }, [handleTouchEnd]);
 
-  // Auto-slide effect with 2-second delay
+  // Auto-slide effect with 3.5-second delay
   useEffect(() => {
     const intervalId = setInterval(() => {
       moveCarousel(1); // Move to the next slide every 3.5 seconds
     }, 3500);
 
     return () => clearInterval(intervalId); // Cleanup the interval on unmount
-  }, [isTransitioning]);
+  }, [moveCarousel]);
 
   const handleImageLoad = () => {
     setLoading(false);
@@ -128,9 +131,7 @@ const Carousel = () => {
           <LazyLoad height={200} offset={100}>
             <div className="relative">
               {loading && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-10 h-10 border-4 border-t-transparent border-gray-500 rounded-full animate-spin"></div>
-                </div>
+                <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
               )}
               <img
                 src={images[totalImages - 1].src}
@@ -147,9 +148,7 @@ const Carousel = () => {
             <LazyLoad height={200} offset={100}>
               <div className="relative">
                 {loading && (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-10 h-10 border-4 border-t-transparent border-gray-500 rounded-full animate-spin"></div>
-                  </div>
+                  <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
                 )}
                 <img
                   src={image.src}
@@ -168,9 +167,7 @@ const Carousel = () => {
           <LazyLoad height={200} offset={100}>
             <div className="relative">
               {loading && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-10 h-10 border-4 border-t-transparent border-gray-500 rounded-full animate-spin"></div>
-                </div>
+                <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
               )}
               <img
                 src={images[0].src}
