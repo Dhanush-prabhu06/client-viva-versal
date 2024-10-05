@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../assets/styleImports.css";
-import LazyLoad from "react-lazyload";
+// import LazyLoad from "react-lazyload";
 
 const Welcome = () => {
   const [isLoading, setIsLoading] = useState(true); // State to track image loading
@@ -86,16 +86,16 @@ const Welcome = () => {
             </div>
           </div>
         )}
-        <LazyLoad height={200} offset={100}>
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/welcome%2FIMG_5774.webp?alt=media&token=8a119872-ea54-4820-8344-8e1f8e996342"
-            alt=".."
-            className={`px-[10px] w-full object-cover object-center lg:h-[750px] h-[400px] pb-8 ${
-              isLoading ? "hidden" : "block"
-            }`}
-            onLoad={handleImageLoad} // Call the handler when the image is loaded
-          />
-        </LazyLoad>
+        {/* <LazyLoad height={200} offset={100}> */}
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/welcome%2FIMG_5774.webp?alt=media&token=8a119872-ea54-4820-8344-8e1f8e996342"
+          alt=".."
+          className={`px-[10px] w-full object-cover object-center lg:h-[750px] h-[400px] pb-8 ${
+            isLoading ? "hidden" : "block"
+          }`}
+          onLoad={handleImageLoad} // Call the handler when the image is loaded
+        />
+        {/* </LazyLoad> */}
       </div>
     </div>
   );
