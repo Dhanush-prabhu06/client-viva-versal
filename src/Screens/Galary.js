@@ -28,7 +28,7 @@ const GalleryItem = ({ src, alt, extraClasses = "" }) => {
         className={`h-full w-full transform transition-transform duration-250 ${
           isLoading ? "hidden" : "block"
         } hover:scale-105`} // Added hover zoom effect
-        loading="lazy"
+        // loading="lazy"
         onLoad={handleImageLoaded}
       />
     </div>
