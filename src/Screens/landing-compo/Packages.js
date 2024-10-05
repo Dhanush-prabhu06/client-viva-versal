@@ -4,13 +4,13 @@ import "./styleImports.css"; // Assuming external styles
 const Packages = () => {
   const rooms = [
     {
-      img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/rooms%2FIMG_5730.webp?alt=media&token=ec0ccdb2-afb9-4663-8b04-c60c9d3d9202",
+      img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/rooms%2FIMG_5755.webp?alt=media&token=f081b5c3-da63-4792-bf7a-3d1d25db3dcc",
       title: "AC Rooms",
       price: "₹3799 per night | per pair",
       link: "/luxuryroom",
     },
     {
-      img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/rooms%2FIMG_5755.webp?alt=media&token=f081b5c3-da63-4792-bf7a-3d1d25db3dcc",
+      img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/rooms%2FIMG_5730.webp?alt=media&token=ec0ccdb2-afb9-4663-8b04-c60c9d3d9202",
       title: "Comfort Room",
       price: "₹2999 per night | per pair",
       link: "/comfortroom",
