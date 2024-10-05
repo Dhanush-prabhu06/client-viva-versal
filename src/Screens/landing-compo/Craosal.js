@@ -128,7 +128,9 @@ const Carousel = () => {
           <LazyLoad height={200} offset={100}>
             <div className="relative">
               {loading && (
-                <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-10 h-10 border-4 border-t-transparent border-gray-500 rounded-full animate-spin"></div>
+                </div>
               )}
               <img
                 src={images[totalImages - 1].src}
@@ -145,7 +147,9 @@ const Carousel = () => {
             <LazyLoad height={200} offset={100}>
               <div className="relative">
                 {loading && (
-                  <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-10 h-10 border-4 border-t-transparent border-gray-500 rounded-full animate-spin"></div>
+                  </div>
                 )}
                 <img
                   src={image.src}
@@ -164,7 +168,9 @@ const Carousel = () => {
           <LazyLoad height={200} offset={100}>
             <div className="relative">
               {loading && (
-                <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-10 h-10 border-4 border-t-transparent border-gray-500 rounded-full animate-spin"></div>
+                </div>
               )}
               <img
                 src={images[0].src}
