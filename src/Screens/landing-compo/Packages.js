@@ -87,7 +87,7 @@ const Packages = () => {
         <h1 className="text-base tracking-widest text-green-700 pb-2">
           DISCOVER OUR ROOMS
         </h1>
-        <h2 className="text-4xl title text-gray-800 pb-4">
+        <h2 className="text-2xl lg:text-4xl title text-gray-800 pb-4">
           ROOMS AND PACKAGES
         </h2>
       </div>

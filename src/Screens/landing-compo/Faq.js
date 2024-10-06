@@ -73,11 +73,17 @@ const Faq = () => {
       <br />
       <div className="px-4">
         <div className="lg:flex flex-col items-center py-6">
-          <h6 className="text-green-700 mb-2">FAQ</h6>
-          <h1 className="text-5xl title mb-2">Frequently Asked</h1>
-          <h1 className="text-5xl title mb-6">Questions</h1>
+          <h1
+            className="uppercase text-green-700 tracking-widest"
+            style={{ wordSpacing: "2px" }}
+          >
+            FAQ
+          </h1>
+          <h1 className="text-3xl lg:text-4xl title mt-2">
+            Frequently Asked Questions
+          </h1>
         </div>
-        <div className="mt-6 flex justify-center">
+        <div className="mt-2 flex justify-center">
           <div className="tracking-wide md:w-3/4">
             {faqs.map((faq, index) => (
               <div key={index} className="py-4 pl-2 border-b border-gray-300">

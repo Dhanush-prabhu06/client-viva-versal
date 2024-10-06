@@ -153,7 +153,7 @@ const Testimonial = () => {
           </h1>
         </div>
         <br />
-        <div className="title text-4xl text-gray-800 px-2">
+        <div className="title text-2xl lg:text-4xl text-gray-800 px-2">
           Hear from those who've experienced paradise
         </div>
       </div>
