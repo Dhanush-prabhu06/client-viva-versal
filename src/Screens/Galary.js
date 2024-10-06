@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 // Spinner component using Tailwind CSS
-const Spinner = () => (
-  <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-solid border-gray-200"></div>
-);
+// const Spinner = () => (
+//   <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-solid border-gray-200"></div>
+// );
 
 // Reusable component for rendering each gallery image with a zoom-in effect
 const GalleryItem = ({ src, alt, extraClasses = "" }) => {
@@ -18,17 +18,16 @@ const GalleryItem = ({ src, alt, extraClasses = "" }) => {
       className={`grid-item md:large-item ${extraClasses} relative overflow-hidden`}
     >
       {isLoading && (
-        <div className="absolute inset-0 flex justify-center items-center bg-gray-200">
-          <Spinner /> {/* Spinner displayed while image is loading */}
+        <div className="absolute inset-0 flex justify-center items-center bg-gray-200 z-10">
+          Loading... {/* Spinner displayed while image is loading */}
         </div>
       )}
       <img
         src={src}
         alt={alt}
-        className={`h-full w-full transform transition-transform duration-250 ${
+        className={`h-full w-full object-cover transform transition-transform duration-500 ${
           isLoading ? "hidden" : "block"
-        } hover:scale-105`} // Added hover zoom effect
-        // loading="lazy"
+        } hover:scale-105 rounded-md hover:rounded-lg`} // Added hover zoom effect
         onLoad={handleImageLoaded}
       />
     </div>
@@ -40,7 +39,7 @@ const Galary = () => {
     {
       src: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/Gallary%2FIMG_5723.webp?alt=media&token=286e344a-4ad6-4732-b0b5-3179daca541e",
       alt: "Gallery Image 1",
-      extraClasses: "col-span-1 md:col-span-2 md:row-span-2",
+      extraClasses: "col-span-1 md:col-span-2 md:row-span-2 ",
     },
     {
       src: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/Gallary%2FIMG_5777.webp?alt=media&token=10ed6d0d-becc-4728-88e1-c7db8c00d2d5",
@@ -69,7 +68,7 @@ const Galary = () => {
     {
       src: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/Gallary%2FAC1%2FIMG_5730.webp?alt=media&token=75952d2d-ca3f-4e70-857a-42361ebab9f7",
       alt: "Gallery Image 8",
-      extraClasses: "col-span-1 md:col-span-2 md:row-span-2",
+      extraClasses: "col-span-1 md:col-span-2 md:row-span-2 ",
     },
     {
       src: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/Gallary%2FAC1%2FIMG_5739.webp?alt=media&token=d3d04860-f419-4096-b193-35afb2240b30",
@@ -106,13 +105,13 @@ const Galary = () => {
     <>
       <div>
         <br />
-        <div className="text-center text-yellow-600 tracking-widest">
+        <div className="text-center mb-1 text-yellow-600 tracking-widest">
           GALLERY
         </div>
-        <br />
+
         <div className="text-3xl text-center">Some Of Our Photo Galleries</div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 p-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4 ">
           {images.map(({ src, alt, extraClasses }, index) => (
             <GalleryItem
               key={index}

@@ -24,12 +24,33 @@ const Faq = () => {
     {
       question: "3. What Amenities Are Included In The Room?",
       answer:
-        "Amenities included in our resort room can vary widely based on the type of accommodation. Common amenities include a bed or beds, private bathroom, toiletries, towels, television, air conditioning or heating, Wi-Fi access, and a mini-fridge.",
+        "Amenities included in our resort room can vary widely based on the type of accommodation. Common amenities include a bed or beds, private bathroom, toiletries, towels, television, air conditioning and Wi-Fi access.",
     },
     {
       question: "4. What Forms Of Payment Are Accepted?",
       answer:
-        "Our resort typically accepts a variety of payment methods, including credit cards (Visa, Mastercard, American Express, etc.), debit cards, cash, and sometimes mobile payment options like Apple Pay or Google Pay.",
+        "Our resort typically accepts a variety of payment methods, including UPI payments and cash is welcomed",
+    },
+    {
+      question: "5. Are Day-Out Packages Available?",
+      answer:
+        "Yes, we offer special day-out packages that include access to the swimming pool, indoor and outdoor games, as well as adventure activities like rope courses. You can book these directly through our website.",
+    },
+    {
+      question: "6. Do You Provide Event Hosting Services?",
+      answer:
+        "Absolutely! Our resort is available for hosting a wide range of events including weddings, engagements, conferences, and birthday parties. Please contact us for more details about event packages and bookings.",
+    },
+
+    {
+      question: "7. Are Pets Allowed At The Resort?",
+      answer:
+        "Unfortunately, pets are not allowed at our resort to ensure the comfort of all our guests.",
+    },
+    {
+      question: "8. Is The Resort Easily Accessible?",
+      answer:
+        "Due to a recent issue with the main road, we have built a separate road to the resort, with clear signboards added for ease of navigation. Please follow the updated route for a smooth drive.",
     },
   ];
 
@@ -65,7 +86,7 @@ const Faq = () => {
                   onClick={() => toggleQuestion(index)}
                 >
                   <div className="flex items-center justify-center">
-                    <h2 className="sm:text-lg lg:text-xl font-semibold mb-4">
+                    <h2 className="sm:text-md lg:text-lg font-semibold mb-4">
                       {faq.question}
                     </h2>
                     <FontAwesomeIcon
