@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
-import "./styleImports.css"; // Assuming external styles
+import "../../assets/styleImports.css"; // Assuming external styles
 
 const Packages = () => {
   const rooms = [

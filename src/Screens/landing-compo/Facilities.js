@@ -15,10 +15,8 @@ import { RiCustomerServiceFill } from "react-icons/ri";
 import { IoMdBonfire } from "react-icons/io";
 import { ImAidKit } from "react-icons/im";
 import { MdSportsCricket } from "react-icons/md";
-
-import KidPlay from "../../assets/facilitiesImg/playground.png";
-
-import "./styleImports.css";
+import "../../assets/styleImports.css";
+//import KidPlay from "../../assets/facilitiesImg/playground.png";
 
 const Facilities = () => {
   const [cards] = useState([
@@ -158,7 +156,7 @@ const Facilities = () => {
         <p className="tracking-widest uppercase text-green-700 mb-0.2">
           Our Facilities
         </p>
-        <h2 className="text-2xl text-gray-800">Our Resort Facilities</h2>
+        <h2 className=" title text-2xl text-gray-800">Our Resort Facilities</h2>
       </div>
 
       {/* Cards grid */}

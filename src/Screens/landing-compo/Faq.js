@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesRight, faAnglesUp } from "@fortawesome/free-solid-svg-icons";
-import "./styleImports.css";
+import "../../assets/styleImports.css";
 
 const Faq = () => {
   const [activeQuestion, setActiveQuestion] = useState(null);
@@ -55,7 +55,7 @@ const Faq = () => {
   ];
 
   return (
-    <div className="faq text-center">
+    <div className=" text-center">
       {/* <div className="relative mx-auto">
         <img
           className="h-96 w-full object-cover"
