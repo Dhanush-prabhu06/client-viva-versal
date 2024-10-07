@@ -66,8 +66,8 @@ const Header = () => {
           <a href="/faq" className="text-gray-900">
             FAQ
           </a>
-          <a href="/login" className="text-gray-900">
-            Login
+          <a href="/dashboard" className="text-gray-900">
+            Dashboard
           </a>
         </div>
       </div>
