@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { IoCloseOutline } from "react-icons/io5";
 import clsx from "clsx";
+import Logo from "../assets/icons/icon.png";
 
 const Header = () => {
   const [isSideMenuOpen, setMenu] = useState(false);
@@ -11,9 +12,13 @@ const Header = () => {
       <div className="max-w-5xl mx-auto px-1">
         <div className="flex items-center justify-between h-16">
           <a href="/">
-            <span className="text-2xl text-gray-900 font-semibold">
-              Viva Fernleaf
-            </span>
+            {/* <span className="text-2xl text-gray-900 font-semibold"> */}
+            <img
+              src={Logo}
+              className="w-11 ml-3 lg:ml-0 "
+              alt="Viva Fernleaf"
+            />
+            {/* </span> */}
           </a>
 
           <div className="hidden lg:flex space-x-4 text-gray-900">

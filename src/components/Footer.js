@@ -51,7 +51,7 @@ const Footer = () => {
         <br />
         <br /> */}
         <div className="  text-center">
-          Copyright &copy;2024 ; Developed by Prabhu & Team
+          Copyright &copy;2024 ; Developed by Team
         </div>
         <br />
       </footer>
