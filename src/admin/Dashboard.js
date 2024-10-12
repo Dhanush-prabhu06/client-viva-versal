@@ -285,11 +285,11 @@ const Dashboard = () => {
                     }
                     className={`px-2 py-1 border rounded 
       ${
-        reservation.status === "pending"
-          ? "bg-yellow-400 "
+        reservation.status === "rejected"
+          ? "bg-red-500 "
           : reservation.status === "approved"
           ? "bg-green-400 "
-          : "bg-red-500 "
+          : "bg-yellow-400 "
       }`}
                   >
                     <option value="pending">Pending</option>
