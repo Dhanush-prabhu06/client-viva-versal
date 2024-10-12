@@ -99,14 +99,17 @@ const Dashboard = () => {
       details.name = reservation.name;
       details.phoneNumber = reservation.phoneNumber;
       details.email = reservation.email;
-      details.dayoutDate = reservation.dayoutDate;
+      details.dayOutDate = reservation.dayOutDate;
       details.numberOfPeople = reservation.numberOfPeople;
+      details.dayOutDate = reservation.dayOutDate; // Handling optional fields
     } else if (type === "events") {
       details.name = reservation.name;
       details.phoneNumber = reservation.phoneNumber;
       details.email = reservation.email;
       details.eventDate = reservation.eventDate;
       details.numberOfPeople = reservation.numberOfPeople;
+      details.eventType = reservation.eventType;
+      console.log(details.eventType);
     }
 
     setSelectedReservation(details);
@@ -124,9 +127,12 @@ const Dashboard = () => {
             <p>
               <strong>Name:</strong> {selectedReservation.name}
             </p>
-            <p>
-              <strong>Email:</strong> {selectedReservation.email}
-            </p>
+            {selectedReservation.email && (
+              <p>
+                <strong>Email:</strong> {selectedReservation.email}
+              </p>
+            )}
+
             <p>
               <strong>Phone Number:</strong> {selectedReservation.phoneNumber}
             </p>
@@ -144,12 +150,22 @@ const Dashboard = () => {
             )}
             {selectedReservation.dayoutDate && (
               <p>
-                <strong>Day-Out Date:</strong> {selectedReservation.dayoutDate}
+                <strong>Day-Out Date:</strong> {selectedReservation.dayOutDate}
               </p>
             )}
             {selectedReservation.eventDate && (
               <p>
                 <strong>Event Date:</strong> {selectedReservation.eventDate}
+              </p>
+            )}
+            {selectedReservation.packageType && (
+              <p>
+                <strong>Package Type:</strong> {selectedReservation.packageType}
+              </p>
+            )}
+            {selectedReservation.dayOutDate && (
+              <p>
+                <strong>Day-out Date:</strong> {selectedReservation.dayOutDate}
               </p>
             )}
           </div>
@@ -158,6 +174,11 @@ const Dashboard = () => {
               <p>
                 <strong>Number of Rooms:</strong>{" "}
                 {selectedReservation.numberOfRooms}
+              </p>
+            )}
+            {selectedReservation.eventType && (
+              <p>
+                <strong>Event Type:</strong> {selectedReservation.eventType}
               </p>
             )}
             <p>
@@ -262,20 +283,37 @@ const Dashboard = () => {
                         e.target.value
                       )
                     }
-                    className={`p-2 rounded ${
-                      reservation.status === "approved"
-                        ? "bg-green-500"
-                        : reservation.status === "rejected"
-                        ? "bg-red-500"
-                        : "bg-yellow-500"
-                    }`}
+                    className={`px-2 py-1 border rounded 
+      ${
+        reservation.status === "pending"
+          ? "bg-yellow-400 "
+          : reservation.status === "approved"
+          ? "bg-green-400 "
+          : "bg-red-500 "
+      }`}
                   >
                     <option value="pending">Pending</option>
                     <option value="approved">Approved</option>
                     <option value="rejected">Rejected</option>
                   </select>
                 </td>
+
                 <td className="px-6 py-4 whitespace-nowrap">
+                  <button
+                    onClick={() =>
+                      handleViewMore(
+                        reservation,
+                        activeTab === "rooms"
+                          ? "rooms"
+                          : activeTab === "dayOut"
+                          ? "dayOut"
+                          : "events"
+                      )
+                    }
+                    className="px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-700 mr-2"
+                  >
+                    View More
+                  </button>
                   <button
                     onClick={() =>
                       handleDelete(
@@ -287,15 +325,9 @@ const Dashboard = () => {
                           : "EventReservations"
                       )
                     }
-                    className="text-red-500 hover:underline"
+                    className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-700"
                   >
                     Delete
-                  </button>
-                  <button
-                    onClick={() => handleViewMore(reservation, activeTab)}
-                    className="ml-4 text-blue-500 hover:underline"
-                  >
-                    View More
                   </button>
                 </td>
               </tr>
@@ -304,7 +336,7 @@ const Dashboard = () => {
         </table>
       </div>
 
-      {/* Render detailed information when a reservation is selected */}
+      {/* Render Detailed View */}
       {renderDetails()}
     </div>
   );

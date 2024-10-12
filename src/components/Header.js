@@ -26,7 +26,7 @@ const Header = () => {
             <a href="/contact">Contact</a>
             <a href="/gallery">Gallery</a>
             <a href="/faq">FAQ</a>
-            <a href="/login">Login</a>
+            <a href="/dashboard">Dashboard</a>
           </div>
 
           {/* Adjusted "Book Now" button alignment */}
