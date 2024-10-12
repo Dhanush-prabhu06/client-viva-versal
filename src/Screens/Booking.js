@@ -1,4 +1,3 @@
-// src/ReservationForm.js
 import React, { useState } from "react";
 import { db } from "../firebase/Config";
 import { collection, addDoc } from "firebase/firestore";
@@ -24,8 +23,12 @@ const Booking = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Ensure no negative values for number fields
     if ((name === "numberOfRooms" || name === "numberOfPeople") && value < 0) {
+      return;
+    }
+
+    if (name === "numberOfRooms" && value >= 13) {
+      setErrorMessage("Only 12 Rooms are available for booking");
       return;
     }
 
@@ -35,6 +38,9 @@ const Booking = () => {
   const handleDateChange = (e) => {
     const { name, value } = e.target;
     const today = new Date().toISOString().split("T")[0];
+
+    // Convert yyyy-mm-dd to dd-mm-yyyy format
+    const formattedDate = value.split("-").reverse().join("-");
 
     if (name === "checkinDate" && value < today) {
       setErrorMessage("Check-in date must be today or later.");
@@ -62,12 +68,11 @@ const Booking = () => {
     }
 
     setErrorMessage("");
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [name]: formattedDate });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //const today = new Date().toISOString().split("T")[0];
 
     if (!/^\d{10}$/.test(formData.phoneNumber)) {
       setErrorMessage("Please enter a valid phone number (10 digits).");
@@ -80,12 +85,33 @@ const Booking = () => {
         : reservationType === "dayOut"
         ? "DayOutPackages"
         : "EventReservations";
+
     const reservationKey = `${reservationType}_${Date.now()}`; // Unique key for segregation
+    const timestamp = new Date();
+
+    // Format the timestamp to dd-mm-yyyy format and a 12-hour clock with AM/PM
+    let hours = timestamp.getHours();
+    const minutes = String(timestamp.getMinutes()).padStart(2, "0");
+    const seconds = String(timestamp.getSeconds()).padStart(2, "0");
+    const ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12 || 12; // Convert 0 to 12 for 12-hour format
+    const formattedTime = `${String(hours).padStart(
+      2,
+      "0"
+    )}:${minutes}:${seconds} ${ampm}`;
+    const bookingTime = `${String(timestamp.getDate()).padStart(
+      2,
+      "0"
+    )}-${String(timestamp.getMonth() + 1).padStart(
+      2,
+      "0"
+    )}-${timestamp.getFullYear()} ${formattedTime}`;
 
     try {
       await addDoc(collection(db, collectionName), {
         ...formData,
         reservationKey,
+        bookingTime, // Store the exact time of booking in dd-mm-yyyy format
       });
       alert("Reservation successful!");
       setFormData({
@@ -160,7 +186,7 @@ const Booking = () => {
               <input
                 type="date"
                 name="checkinDate"
-                value={formData.checkinDate}
+                value={formData.checkinDate.split("-").reverse().join("-")} // display date in dd-mm-yyyy
                 onChange={handleDateChange}
                 className="w-full p-2 border rounded"
                 required
@@ -168,7 +194,7 @@ const Booking = () => {
               <input
                 type="date"
                 name="checkoutDate"
-                value={formData.checkoutDate}
+                value={formData.checkoutDate.split("-").reverse().join("-")} // display date in dd-mm-yyyy
                 onChange={handleDateChange}
                 className="w-full p-2 border rounded"
                 required
@@ -201,7 +227,7 @@ const Booking = () => {
               <input
                 type="date"
                 name="dayOutDate"
-                value={formData.dayOutDate}
+                value={formData.dayOutDate.split("-").reverse().join("-")} // display date in dd-mm-yyyy
                 onChange={handleDateChange}
                 className="w-full p-2 border rounded"
                 required
@@ -233,7 +259,7 @@ const Booking = () => {
               <input
                 type="date"
                 name="eventDate"
-                value={formData.eventDate}
+                value={formData.eventDate.split("-").reverse().join("-")} // display date in dd-mm-yyyy
                 onChange={handleDateChange}
                 className="w-full p-2 border rounded"
                 required
@@ -267,9 +293,9 @@ const Booking = () => {
 
           <button
             type="submit"
-            className="w-full py-2 bg-green-500 text-white rounded hover:bg-green-600"
+            className="w-full py-2 px-4 bg-green-500 text-white rounded hover:bg-green-600"
           >
-            Submit Reservation
+            Book Now
           </button>
         </form>
       )}

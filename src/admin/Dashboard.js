@@ -95,13 +95,15 @@ const Dashboard = () => {
       details.checkoutDate = reservation.checkoutDate;
       details.numberOfRooms = reservation.numberOfRooms;
       details.numberOfPeople = reservation.numberOfPeople;
+      details.bookingTime = reservation.bookingTime;
     } else if (type === "dayOut") {
       details.name = reservation.name;
       details.phoneNumber = reservation.phoneNumber;
       details.email = reservation.email;
       details.dayOutDate = reservation.dayOutDate;
       details.numberOfPeople = reservation.numberOfPeople;
-      details.dayOutDate = reservation.dayOutDate; // Handling optional fields
+      details.dayOutDate = reservation.dayOutDate;
+      details.bookingTime = reservation.bookingTime;
     } else if (type === "events") {
       details.name = reservation.name;
       details.phoneNumber = reservation.phoneNumber;
@@ -109,7 +111,7 @@ const Dashboard = () => {
       details.eventDate = reservation.eventDate;
       details.numberOfPeople = reservation.numberOfPeople;
       details.eventType = reservation.eventType;
-      console.log(details.eventType);
+      details.bookingTime = reservation.bookingTime;
     }
 
     setSelectedReservation(details);
@@ -168,6 +170,9 @@ const Dashboard = () => {
                 <strong>Day-out Date:</strong> {selectedReservation.dayOutDate}
               </p>
             )}
+            <p>
+              <strong>Booking Time:</strong> {selectedReservation.bookingTime}
+            </p>
           </div>
           <div>
             {selectedReservation.numberOfRooms && (
