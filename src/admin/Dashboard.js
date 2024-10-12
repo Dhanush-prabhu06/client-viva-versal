@@ -260,7 +260,7 @@ const Dashboard = () => {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Status
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider pl-20  ">
                 Actions
               </th>
             </tr>
@@ -276,7 +276,7 @@ const Dashboard = () => {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <select
-                    value={reservation.status || "pending"}
+                    value={reservation.status || "unSeen"}
                     onChange={(e) =>
                       handleStatusChange(
                         reservation.id,
@@ -294,12 +294,15 @@ const Dashboard = () => {
           ? "bg-red-500 "
           : reservation.status === "approved"
           ? "bg-green-400 "
-          : "bg-yellow-400 "
+          : reservation.status === "pending"
+          ? "bg-yellow-400 "
+          : "bg-black text-white "
       }`}
                   >
                     <option value="pending">Pending</option>
                     <option value="approved">Approved</option>
                     <option value="rejected">Rejected</option>
+                    <option value="unSeen">Unseen</option>
                   </select>
                 </td>
 
