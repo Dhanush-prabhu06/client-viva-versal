@@ -10,15 +10,16 @@ const Header = () => {
   return (
     <nav className="sticky z-10 shadow-5-strong top-0 bg-slate-400 bg-opacity-30 backdrop-blur-xl ">
       <div className="max-w-5xl mx-auto px-1">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-auto">
           <a href="/">
-            {/* <span className="text-2xl text-gray-900 font-semibold"> */}
             <img
               src={Logo}
-              className="w-11 ml-3 lg:ml-0 "
+              className="w-10 ml-8 lg:ml-7 "
               alt="Viva Fernleaf"
             />
-            {/* </span> */}
+            <span className="text-xl text-gray-900 font-semibold">
+              Viva Fernleaf
+            </span>
           </a>
 
           <div className="hidden lg:flex space-x-4 text-gray-900">
@@ -30,7 +31,7 @@ const Header = () => {
           </div>
 
           {/* Adjusted "Book Now" button alignment */}
-          <button className="bg-green-600 px-3 rounded-md shadow-5 py-1 ml-auto lg:ml-24 mr-2">
+          <button className="bg-green-600 px-3 rounded-md shadow-5 py-1 ml-auto lg:ml-24 mr-7">
             <a href="/booking">Book Now</a>
           </button>
 

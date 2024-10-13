@@ -46,8 +46,6 @@ const Home = () => {
         <br />
 
         <a href="/testimonial">testimonial</a>
-        <br />
-        <br />
 
         <a href="/login">login</a>
         <br />

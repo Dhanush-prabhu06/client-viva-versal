@@ -18,6 +18,7 @@ import "../../assets/styleImports.css";
 
 const Facilities = () => {
   const [popup, setPopup] = useState({ isOpen: false, image: "" });
+  const [loading, setLoading] = useState(false); // Loader state
 
   const cards = [
     {
@@ -139,14 +140,17 @@ const Facilities = () => {
 
   const openPopup = (image) => {
     setPopup({ isOpen: true, image });
+    setLoading(true); // Start loading when image is opened
   };
 
   const closePopup = () => {
     setPopup({ isOpen: false, image: "" });
+    setLoading(false); // Reset loader when popup is closed
   };
 
   return (
     <div className="flex flex-col items-center">
+      {/* Heading section */}
       <div className="text-center mb-6">
         <p className="tracking-widest uppercase text-green-700 mb-0.2">
           Our Facilities
@@ -154,6 +158,7 @@ const Facilities = () => {
         <h2 className="title text-2xl text-gray-800">Our Resort Facilities</h2>
       </div>
 
+      {/* Cards grid */}
       <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 sm:gap-6 md:gap-8 lg:gap-12 mx-auto">
         {cards.map((card, index) => (
           <div
@@ -167,7 +172,7 @@ const Facilities = () => {
               {card.icon}
             </div>
             <a
-              href="#"
+              href="/"
               onClick={(e) => {
                 e.preventDefault(); // Prevent default anchor behavior
                 openPopup(card.image);
@@ -186,19 +191,51 @@ const Facilities = () => {
           <div className="bg-white p-2 rounded-lg relative">
             <button
               onClick={closePopup}
-              className="absolute top-[-10px]  right-1 text-red-600 text-6xl "
+              className="absolute top-[-10px] right-1 text-red-600 text-6xl"
               style={{ background: "none", border: "none", cursor: "pointer" }}
             >
               &times; {/* Close icon */}
             </button>
+
+            {/* Spinner */}
+            {loading && (
+              <div className="flex items-center justify-center h-[80vh]">
+                <div className="spinner"></div> {/* Spinner element */}
+              </div>
+            )}
+
             <img
               src={popup.image}
               alt="Facility"
-              className="max-w-full max-h-[80vh] rounded-lg"
+              className={`max-w-full max-h-[80vh] rounded-lg ${
+                loading ? "hidden" : "block"
+              }`}
+              onLoad={() => setLoading(false)} // Stop loading when image has loaded
             />
           </div>
         </div>
       )}
+
+      {/* Internal CSS for Spinner */}
+      <style jsx>{`
+        .spinner {
+          border: 4px solid rgba(0, 0, 0, 0.1);
+          border-top: 4px solid #4caf50; /* Spinner color */
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      `}</style>
     </div>
   );
 };

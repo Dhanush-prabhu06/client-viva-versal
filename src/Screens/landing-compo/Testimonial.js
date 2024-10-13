@@ -141,7 +141,7 @@ const Testimonial = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen mt-10 md:mt-0">
       {/* New Top Content */}
       <div className="text-center mb-8">
         <div className="items-center">

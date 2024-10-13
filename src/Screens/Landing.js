@@ -6,6 +6,7 @@ import Packages from "./landing-compo/Packages";
 // import Amenities from "./landing-compo/Amanities";
 import Faq from "./landing-compo/Faq";
 import Testimonial from "./landing-compo/Testimonial";
+import GalleryPreview from "./landing-compo/GalleryPreview";
 
 const Landing = () => {
   return (
@@ -21,8 +22,10 @@ const Landing = () => {
       <Packages />
       <br />
       <br />
+      <GalleryPreview />
+
       <Testimonial />
-      <br />
+
       <Faq />
     </div>
   );

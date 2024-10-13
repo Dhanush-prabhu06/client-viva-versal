@@ -105,7 +105,7 @@ const Galary = () => {
     <>
       <div>
         <br />
-        <div className="text-center mb-1 text-yellow-600 tracking-widest">
+        <div className="text-center mb-1 text-green-600 tracking-widest">
           GALLERY
         </div>
 
