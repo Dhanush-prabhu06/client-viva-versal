@@ -155,7 +155,7 @@ const Booking = () => {
           }`}
           onClick={() => setReservationType("rooms")}
         >
-          Reserve Rooms
+          Rooms
         </button>
         <button
           className={`w-full py-3 px-6 rounded-full text-lg font-semibold tracking-wide transition-all duration-300 transform ${
@@ -165,7 +165,7 @@ const Booking = () => {
           }`}
           onClick={() => setReservationType("dayOut")}
         >
-          Reserve Day-out Package
+          Day-out Package
         </button>
         <button
           className={`w-full py-3 px-6 rounded-full text-lg font-semibold tracking-wide transition-all duration-300 transform ${
@@ -175,7 +175,7 @@ const Booking = () => {
           }`}
           onClick={() => setReservationType("event")}
         >
-          Reserve Event
+          Event
         </button>
       </div>
 
@@ -211,7 +211,7 @@ const Booking = () => {
               Phone Number
             </label>
             <input
-              type="text"
+              type="number"
               id="phoneNumber"
               name="phoneNumber"
               placeholder="10-digit mobile number"
