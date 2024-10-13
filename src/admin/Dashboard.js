@@ -129,11 +129,10 @@ const Dashboard = () => {
             <p>
               <strong>Name:</strong> {selectedReservation.name}
             </p>
-            {selectedReservation.email && (
-              <p>
-                <strong>Email:</strong> {selectedReservation.email}
-              </p>
-            )}
+
+            <p>
+              <strong>Email:</strong> {selectedReservation.email}
+            </p>
 
             <p>
               <strong>Phone Number:</strong> {selectedReservation.phoneNumber}
