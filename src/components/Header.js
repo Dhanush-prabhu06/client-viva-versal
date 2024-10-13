@@ -14,7 +14,7 @@ const Header = () => {
           <a href="/">
             <img
               src={Logo}
-              className="w-10 ml-8 lg:ml-7 "
+              className="w-7 ml-10 lg:ml-11"
               alt="Viva Fernleaf"
             />
             <span className="text-xl text-gray-900 font-semibold">
