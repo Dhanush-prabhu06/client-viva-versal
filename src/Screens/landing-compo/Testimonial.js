@@ -159,9 +159,9 @@ const Testimonial = () => {
       </div>
 
       {/* Existing Carousel Section */}
-      <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-6xl">
+      <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-6xl">
         {/* Left Side - Resort Image */}
-        <div className="w-full md:w-1/2 h-96 p-6">
+        <div className="w-full lg:w-1/2 h-96 p-6">
           <img
             src="https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/crousal%2FIMG_5782.webp?alt=media&token=925a176d-157c-4f58-86cb-8368fd1de507"
             alt="main-image"
