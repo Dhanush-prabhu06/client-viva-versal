@@ -11,7 +11,7 @@ const Welcome = () => {
   };
 
   return (
-    <div className="lg:flex">
+    <div className="md:flex">
       <div className="lg:w-10/12 flex flex-col justify-center items-center">
         {/* This will center the left content horizontally */}
 

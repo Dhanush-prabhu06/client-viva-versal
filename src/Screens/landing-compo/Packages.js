@@ -93,7 +93,7 @@ const Packages = () => {
       </div>
 
       {/* Mobile Carousel */}
-      <div className="block lg:hidden">
+      <div className="block md:hidden">
         {/* New Navigation Section */}
         <div className="relative flex items-center justify-between mb-4">
           {/* Left Arrow */}
@@ -157,7 +157,7 @@ const Packages = () => {
       </div>
 
       {/* Desktop and Tablet Static Cards */}
-      <div className="hidden lg:flex justify-center space-x-4">
+      <div className="hidden md:flex justify-center ">
         {rooms.map((room, index) => (
           <div key={index} className="w-1/3 p-2">
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
