@@ -124,7 +124,7 @@ const Dashboard = () => {
     return (
       <div className="p-4 border rounded shadow-md bg-gray-50">
         <h3 className="font-bold text-lg mb-4">Reservation Details</h3>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
           <div>
             <p>
               <strong>Name:</strong> {selectedReservation.name}
