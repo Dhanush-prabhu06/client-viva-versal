@@ -1,17 +1,9 @@
 import React, { useState } from "react";
 import { db } from "../firebase/Config";
 import { collection, addDoc } from "firebase/firestore";
-// import CustomModal from "./CustomModal"; // Importing the modal
 
 const Booking = () => {
   const [reservationType, setReservationType] = useState(null); // Initially, no type is selected
-
-  const [showModal, setShowModal] = useState(false);
-
-  const closeModal = () => {
-    setShowModal(false);
-  };
-
   const [formData, setFormData] = useState({
     name: "",
     phoneNumber: "",
@@ -27,8 +19,14 @@ const Booking = () => {
   });
 
   const [errorMessage, setErrorMessage] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false); // For controlling the modal
+  const [showModal, setShowModal] = useState(false); // Success modal control
 
+  // Close success modal
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -37,13 +35,14 @@ const Booking = () => {
     }
 
     if (name === "numberOfRooms" && value >= 13) {
-      setErrorMessage("Only 12 Rooms are available for booking");
+      setErrorMessage("Only 12 rooms are available for booking.");
       return;
     }
 
     setFormData({ ...formData, [name]: value });
   };
 
+  // Handle date changes with validation
   const handleDateChange = (e) => {
     const { name, value } = e.target;
     const today = new Date().toISOString().split("T")[0];
@@ -78,12 +77,14 @@ const Booking = () => {
     setFormData({ ...formData, [name]: formattedDate });
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Simulate form submission
-    setShowModal(true); // Show the modal after reservation success
+    // Reset error messages
+    setErrorMessage("");
 
+    // Validate phone number (10 digits)
     if (!/^\d{10}$/.test(formData.phoneNumber)) {
       setErrorMessage("Please enter a valid phone number (10 digits).");
       return;
@@ -117,12 +118,17 @@ const Booking = () => {
     )}-${timestamp.getFullYear()} ${formattedTime}`;
 
     try {
+      // Submit the data to Firestore
       await addDoc(collection(db, collectionName), {
         ...formData,
         reservationKey,
         bookingTime,
       });
-      setIsModalOpen(true); // Open modal on successful reservation
+
+      // Show the success modal only after successful submission
+      setShowModal(true);
+
+      // Reset form data
       setFormData({
         name: "",
         phoneNumber: "",
@@ -211,7 +217,7 @@ const Booking = () => {
               Phone Number
             </label>
             <input
-              type="number"
+              type="text"
               id="phoneNumber"
               name="phoneNumber"
               placeholder="10-digit mobile number"
@@ -440,22 +446,22 @@ const Booking = () => {
         </form>
       )}
 
-      {/* Modal for success message */}
+      {/* Success Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full text-center">
-            <h2 className="text-2xl font-semibold text-green-600 mb-4">
-              Reservation Successful!!
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <h2 className="text-2xl font-bold mb-2 text-center text-green-600">
+              Reservation successful!
             </h2>
-            <p className="text-gray-700 mb-6">
-              Your reservation has been received and our team will contact you
-              shortly.
+            <p className="text-center text-gray-700">
+              Our Team will contact you shortly.
             </p>
+
             <button
-              className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300"
               onClick={closeModal}
+              className="mt-4 w-full bg-blue-500 text-white py-2 px-4 rounded-lg"
             >
-              OK
+              Close
             </button>
           </div>
         </div>
