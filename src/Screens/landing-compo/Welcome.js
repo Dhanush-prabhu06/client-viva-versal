@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../../assets/styleImports.css";
-// import LazyLoad from "react-lazyload";
 
 const Welcome = () => {
   const [isLoading, setIsLoading] = useState(true); // State to track image loading
@@ -14,10 +13,9 @@ const Welcome = () => {
     <div className="md:flex">
       <div className="lg:w-10/12 flex flex-col justify-center items-center">
         {/* This will center the left content horizontally */}
-
         <div className="items-center">
           <p
-            className="uppercase text-green-700 tracking-widest"
+            className="uppercase text-sm text-green-700 tracking-widest"
             style={{ wordSpacing: "1px" }}
           >
             WELCOME TO NEW VIVA FERNLEAF RESORT
@@ -46,30 +44,24 @@ const Welcome = () => {
         </div>
         <br />
 
-        <div className="w-full flex-wrap grid grid-rows-1 grid-flow-col justify-center gap-6 pl-[1.5vw] md:pl-1 lg:pt-24 ">
-          <div className="w-44 h-[265px] flex items-center flex-col md:ml-[-4vh] md:mr-[10vw]">
+        <div className="w-full flex-wrap grid grid-rows-1 grid-flow-col justify-center gap-8 px-4 lg:pt-24">
+          <div className="w-36   h-[265px] flex items-center flex-col">
             <img
-              className="w-24 h-24"
+              className="w-20 h-20 "
               src="https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/welcome%2Fforest.png?alt=media&token=27b304ae-1c99-49a0-8b40-47c1fca5f3cb"
               alt="Reconnect with Nature"
             />
-            {/* <p className="lg:text-3xl text-xl text-center font-bold mini-tital">
-              Reconnect with Nature
-            </p> */}
-            <p className="text-base text-gray-600 pt-2 text-wrap text-center">
+            <p className="text-md text-gray-600 pt-2 text-wrap text-center">
               Embrace the serene beauty of our lush surroundings
             </p>
           </div>
 
-          <div className="w-44 h-[265px] items-center flex flex-col">
+          <div className="w-36  h-[265px] items-center flex flex-col">
             <img
-              className="w-24 h-24 pb-1 pt-[-2]"
+              className="w-20 h-20 pb-1"
               src="https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/welcome%2Fsunbathing.png?alt=media&token=f918088b-256f-49c1-8714-f174706bf2a6"
               alt="Classy Facilities"
             />
-            {/* <p className="lg:text-3xl text-xl font-bold text-center mini-tital pt-[-5px]">
-              Experience Classy Facilities
-            </p> */}
             <p className="text-center text-gray-600 pt-2">
               Pamper yourself with a range of relaxing amenities
             </p>
@@ -89,7 +81,7 @@ const Welcome = () => {
             </div>
           </div>
         )}
-        {/* <LazyLoad height={200} offset={100}> */}
+
         <img
           src="https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/welcome%2FIMG_5774.webp?alt=media&token=8a119872-ea54-4820-8344-8e1f8e996342"
           alt=".."
@@ -98,7 +90,6 @@ const Welcome = () => {
           }`}
           onLoad={handleImageLoad} // Call the handler when the image is loaded
         />
-        {/* </LazyLoad> */}
       </div>
     </div>
   );

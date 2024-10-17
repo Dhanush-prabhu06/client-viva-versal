@@ -27,10 +27,13 @@ import ResortPhotos from "./Screens/gallery-section/listed-cards/ResortPhotos";
 import PoolAndActivitiesPhotos from "./Screens/gallery-section/listed-cards/PoolAndActivitiesPhotos";
 import EventsPhotos from "./Screens/gallery-section/listed-cards/EventsPhotos";
 
+import ScrollToTop from "./components/ScrollToTop";
+
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/landing" element={<Home />} />

@@ -8,7 +8,7 @@ const Header = () => {
   const [isSideMenuOpen, setMenu] = useState(false);
 
   return (
-    <nav className="sticky z-10 shadow-5-strong top-0 bg-slate-400 bg-opacity-30 backdrop-blur-xl ">
+    <nav className="sticky z-50  shadow-5-strong top-0 bg-slate-400 bg-opacity-30 backdrop-blur-xl ">
       <div className="max-w-5xl mx-auto px-1">
         <div className="flex items-center justify-between h-auto">
           <a href="/">
