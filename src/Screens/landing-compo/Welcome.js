@@ -16,12 +16,12 @@ const Welcome = () => {
         {/* This will center the left content horizontally */}
 
         <div className="items-center">
-          <h1
+          <p
             className="uppercase text-green-700 tracking-widest"
-            style={{ wordSpacing: "2px" }}
+            style={{ wordSpacing: "1px" }}
           >
             WELCOME TO NEW VIVA FERNLEAF RESORT
-          </h1>
+          </p>
         </div>
         <br />
 

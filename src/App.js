@@ -21,6 +21,12 @@ import { AuthProvider } from "./admin/auth/AuthProvider"; // Import AuthProvider
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import RoomDetails from "./Screens/RoomDetails";
+import GallerySection from "./Screens/gallery-section/GallerySection";
+import RoomsPhotos from "./Screens/gallery-section/listed-cards/RoomsPhotos";
+import ResortPhotos from "./Screens/gallery-section/listed-cards/ResortPhotos";
+import PoolAndActivitiesPhotos from "./Screens/gallery-section/listed-cards/PoolAndActivitiesPhotos";
+import EventsPhotos from "./Screens/gallery-section/listed-cards/EventsPhotos";
+
 function App() {
   return (
     <AuthProvider>
@@ -30,7 +36,7 @@ function App() {
           <Route path="/landing" element={<Home />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/gallery" element={<Galary />} />
+          <Route path="/GallerySection" element={<Galary />} />
           <Route path="/amanities" element={<Amanities />} />
           <Route path="/crousal" element={<Crousal />} />
           <Route path="/facilities" element={<Facilities />} />
@@ -47,6 +53,17 @@ function App() {
           <Route path="/footer" element={<Footer />} />
           <Route path="/header" element={<Header />} />
           <Route path="/roomDetails" element={<RoomDetails />} />
+
+          {/* Galary Routing */}
+
+          <Route path="/gallery" element={<GallerySection />} />
+          <Route path="/gallery/RoomsPhotos" element={<RoomsPhotos />} />
+          <Route path="/gallery/ResortPhotos" element={<ResortPhotos />} />
+          <Route
+            path="/gallery/PoolAndActivitiesPhotos"
+            element={<PoolAndActivitiesPhotos />}
+          />
+          <Route path="/gallery/EventsPhotos" element={<EventsPhotos />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

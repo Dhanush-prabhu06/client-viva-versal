@@ -24,14 +24,13 @@ const Header = () => {
 
           <div className="hidden lg:flex space-x-4 text-gray-900">
             <a href="/">Home</a>
-            <a href="/contact">Contact</a>
+            {/* <a href="/contact">Contact</a> */}
             <a href="/gallery">Gallery</a>
-            <a href="/faq">FAQ</a>
             <a href="/dashboard">Dashboard</a>
           </div>
 
-          {/* Adjusted "Book Now" button alignment */}
-          <button className="bg-green-600 px-3 rounded-md shadow-5 py-1 ml-auto lg:ml-24 mr-7">
+          {/* "Book Now" button with gradient */}
+          <button className="bg-gradient-to-r from-green-500 to-teal-500 text-white px-4 rounded-md shadow-lg py-2 ml-auto lg:ml-24 mr-7 transition-transform hover:scale-105 hover:shadow-xl">
             <a href="/booking">Book Now</a>
           </button>
 
@@ -43,40 +42,57 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Side menu */}
+      {/* Side menu with animations */}
       <div
         className={clsx(
-          "lg:hidden fixed inset-y-0 left-0 z-50 w-40 bg-black/50 backdrop-blur-sm transition-transform duration-200",
+          "lg:hidden fixed inset-y-0 left-0 z-50 w-64 bg-black/60 backdrop-blur-md transition-transform duration-300 ease-out shadow-lg",
           {
-            "translate-x-0": isSideMenuOpen,
-            "-translate-x-full": !isSideMenuOpen,
+            "translate-x-0 opacity-100": isSideMenuOpen,
+            "-translate-x-full opacity-0": !isSideMenuOpen,
           }
         )}
       >
         <div className="flex justify-between h-16 px-4 py-4 bg-white">
           <IoCloseOutline
             onClick={() => setMenu(false)}
-            className="text-3xl cursor-pointer"
+            className="text-5xl cursor-pointer text-red-600 transition-colors duration-200"
           />
         </div>
-        <div className="flex flex-col px-4 py-2 space-y-2 bg-white w-40 h-screen">
-          <a href="/" className="text-gray-900">
+        <div className="flex flex-col px-6 py-6 space-y-6 bg-white w-64 h-screen shadow-xl transform transition-opacity duration-300 ease-out">
+          <a
+            href="/"
+            className="text-gray-900 text-2xl font-semibold transition-transform hover:text-teal-600 transform hover:scale-105"
+          >
             Home
           </a>
-          <a href="/contact" className="text-gray-900">
+          {/* <a
+            href="/contact"
+            className="text-gray-900 text-2xl font-semibold transition-transform hover:text-teal-600 transform hover:scale-105"
+          >
             Contact
-          </a>
-          <a href="/gallery" className="text-gray-900">
+          </a> */}
+          <a
+            href="/gallery"
+            className="text-gray-900 text-2xl font-semibold transition-transform hover:text-teal-600 transform hover:scale-105"
+          >
             Gallery
           </a>
-          <a href="/faq" className="text-gray-900">
-            FAQ
-          </a>
-          <a href="/dashboard" className="text-gray-900">
+          <a
+            href="/dashboard"
+            className="text-gray-900 text-2xl font-semibold transition-transform hover:text-teal-600 transform hover:scale-105"
+          >
             Dashboard
           </a>
         </div>
       </div>
+
+      {/* Overlay to close the menu when clicked outside */}
+      {isSideMenuOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black opacity-30"
+          onClick={() => setMenu(false)}
+        />
+      )}
     </nav>
   );
 };

@@ -98,7 +98,7 @@ const Carousel = () => {
         {/* Previous Button */}
         <button
           onClick={() => moveCarousel(-1)}
-          className="bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 z-20 pointer-events-auto md:p-3"
+          className=" bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 z-20 pointer-events-auto md:p-3"
         >
           &#10094;
         </button>
