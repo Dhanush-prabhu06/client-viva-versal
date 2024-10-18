@@ -9,7 +9,7 @@ const WA_E = () => {
       <a
         href="tel:+919886009778" // tel: protocol for phone call
         aria-label="Call us"
-        className="flex items-center justify-center rounded-full mb-2"
+        className="flex items-center justify-center rounded-full mb-3"
       >
         <img src={PhoneIcon} alt="phone logo" className="w-14 h-14" />
         {/* Use phone icon */}
