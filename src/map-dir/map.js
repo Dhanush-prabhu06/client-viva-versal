@@ -1,37 +1,41 @@
 import React from "react";
-import { Icon } from "leaflet";
-import "./map.css";
-import "leaflet/dist/leaflet.css";
-import { MapContainer } from "react-leaflet/MapContainer";
-import { TileLayer } from "react-leaflet/TileLayer";
-import { Marker } from "react-leaflet";
-import { Popup } from "react-leaflet";
-import BlackPin from "./image/blackPin.png";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+
 const Map = () => {
-  const markSit = [
-    {
-      Geolocation: [13.346434, 77.184534],
-      Popup: "Sit",
-    },
-  ];
-  const custumIconSit = new Icon({
-    iconUrl: BlackPin,
-    iconSize: [38, 38],
-  });
+  // Location to be centered on and where the markers will be placed
+  const centerLocation = {
+    lat: 13.346434,
+    lng: 77.184534,
+  };
+
+  // Second marker location
+  const secondLocation = {
+    lat: 13.348434, // Slightly different latitude
+    lng: 77.182534, // Slightly different longitude
+  };
+
+  // Define container style using Tailwind
+  const containerStyle = {
+    width: "100%",
+    height: "500px", // Adjust this for your layout
+  };
 
   return (
-    <MapContainer center={[13.346434, 77.184534]} zoom={13}>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+    <div className="flex justify-center items-center">
+      <LoadScript googleMapsApiKey="AIzaSyCAn1AoU-SBgUc1xwceXzXhhnKP3z_HeLY">
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={centerLocation}
+          zoom={13} // Adjust the zoom level as needed
+        >
+          {/* Marker at the center location */}
+          <Marker position={centerLocation} />
 
-      {markSit.map((markSit, index) => (
-        <Marker position={markSit.Geolocation} icon={custumIconSit} key={index}>
-          <Popup>{markSit.Popup}</Popup>
-        </Marker>
-      ))}
-    </MapContainer>
+          {/* Second marker at a nearby location */}
+          <Marker position={secondLocation} />
+        </GoogleMap>
+      </LoadScript>
+    </div>
   );
 };
 
