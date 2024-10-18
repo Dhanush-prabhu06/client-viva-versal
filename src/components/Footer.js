@@ -14,11 +14,28 @@ const Footer = () => {
             <div className="flex flex-row lg:flex-col md:justify-evenly w-[100%] space-x-20 lg:space-x-0 lg:space-y-48  mt-16  justify-center ">
               <div className="flex flex-col space-y-2 lg:mt-10">
                 <div className=" font-bold ">Our Phone Number</div>
-                <div>+91 98860 09778</div>
+                <a
+                  href="tel:+919886009778" // tel: protocol for phone call
+                  aria-label="Call us"
+                >
+                  <div className="hover:cursor-pointer hover:text-yellow-600">
+                    +91 98860 09778
+                  </div>
+                </a>
               </div>
               <div className="flex flex-col space-y-2  ">
                 <p className=" font-bold ">Our Email</p>
-                <p>vivafernleaf@gmail.com</p>
+
+                <a
+                  href="mailto:vivafernleaftumkur@gmail.com?subject=Query regarding booking.."
+                  aria-label="Send an Email"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div className="hover:cursor-pointer">
+                    vivafernleaf@gmail.com
+                  </div>
+                </a>
               </div>
             </div>
             {/* <div className="flex flex-row md:justify-start w-[100%] space-x-32  justify-center">
