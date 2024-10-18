@@ -29,15 +29,7 @@ const Map = () => {
           zoom={13} // Adjust the zoom level as needed
         >
           {/* Marker with custom icon and label */}
-          <Marker
-            position={centerLocation}
-            label={{
-              text: "My Resort", // Label text
-              color: "black", // Label color
-              fontWeight: "bold", // Make it bold
-              fontSize: "16px", // Adjust size as needed
-            }}
-          />
+          <Marker position={centerLocation} />
         </GoogleMap>
       </LoadScript>
     </div>
