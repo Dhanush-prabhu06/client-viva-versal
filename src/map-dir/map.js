@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 const Map = () => {
@@ -20,6 +20,13 @@ const Map = () => {
     scaledSize: { width: 50, height: 50 }, // Adjust size as needed
   };
 
+  const [markerAnimation, setMarkerAnimation] = useState(null);
+
+  // useEffect to trigger marker animation after the map has been loaded
+  useEffect(() => {
+    setMarkerAnimation(window.google?.maps?.Animation?.BOUNCE);
+  }, []);
+
   return (
     <div className="flex justify-center items-center">
       <LoadScript googleMapsApiKey="AIzaSyCAn1AoU-SBgUc1xwceXzXhhnKP3z_HeLY">
@@ -28,8 +35,12 @@ const Map = () => {
           center={centerLocation}
           zoom={13} // Adjust the zoom level as needed
         >
-          {/* Marker with the custom black SVG icon */}
-          <Marker position={centerLocation} icon={customMarkerIcon} />
+          {/* Marker with the custom black SVG icon and bouncing animation */}
+          <Marker
+            position={centerLocation}
+            icon={customMarkerIcon}
+            animation={markerAnimation}
+          />
         </GoogleMap>
       </LoadScript>
     </div>
