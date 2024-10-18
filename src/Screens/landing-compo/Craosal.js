@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from "react";
-import LazyLoad from "react-lazyload";
 
 const images = [
   {
@@ -128,55 +127,49 @@ const Carousel = () => {
       >
         {/* Cloned last image */}
         <div className="flex-none w-full">
-          <LazyLoad height={200} offset={100}>
+          <div className="relative">
+            {loading && (
+              <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
+            )}
+            <img
+              src={images[totalImages - 1].src}
+              alt={`${totalImages}`}
+              className="object-cover w-full h-[300px] md:h-[500px]"
+              onLoad={handleImageLoad}
+            />
+          </div>
+        </div>
+
+        {images.map((image, index) => (
+          <div key={index} className="flex-none w-full">
             <div className="relative">
               {loading && (
                 <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
               )}
               <img
-                src={images[totalImages - 1].src}
-                alt={`${totalImages}`}
+                src={image.src}
+                alt={`${index + 1}`}
                 className="object-cover w-full h-[300px] md:h-[500px]"
                 onLoad={handleImageLoad}
+                loading="lazy"
               />
             </div>
-          </LazyLoad>
-        </div>
-
-        {images.map((image, index) => (
-          <div key={index} className="flex-none w-full">
-            <LazyLoad height={200} offset={100}>
-              <div className="relative">
-                {loading && (
-                  <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
-                )}
-                <img
-                  src={image.src}
-                  alt={`${index + 1}`}
-                  className="object-cover w-full h-[300px] md:h-[500px]"
-                  onLoad={handleImageLoad}
-                  loading="lazy"
-                />
-              </div>
-            </LazyLoad>
           </div>
         ))}
 
         {/* Cloned first image */}
         <div className="flex-none w-full">
-          <LazyLoad height={200} offset={100}>
-            <div className="relative">
-              {loading && (
-                <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
-              )}
-              <img
-                src={images[0].src}
-                alt="..."
-                className="object-cover w-full h-[300px] md:h-[500px]"
-                onLoad={handleImageLoad}
-              />
-            </div>
-          </LazyLoad>
+          <div className="relative">
+            {loading && (
+              <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
+            )}
+            <img
+              src={images[0].src}
+              alt="..."
+              className="object-cover w-full h-[300px] md:h-[500px]"
+              onLoad={handleImageLoad}
+            />
+          </div>
         </div>
       </div>
     </div>
