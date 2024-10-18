@@ -9,10 +9,10 @@ const Map = () => {
   };
 
   // Second marker location
-  const secondLocation = {
-    lat: 13.348434, // Slightly different latitude
-    lng: 77.182534, // Slightly different longitude
-  };
+  // const secondLocation = {
+  //   lat: 13.348434, // Slightly different latitude
+  //   lng: 77.182534, // Slightly different longitude
+  // };
 
   // Define container style using Tailwind
   const containerStyle = {
@@ -30,9 +30,6 @@ const Map = () => {
         >
           {/* Marker at the center location */}
           <Marker position={centerLocation} />
-
-          {/* Second marker at a nearby location */}
-          <Marker position={secondLocation} />
         </GoogleMap>
       </LoadScript>
     </div>

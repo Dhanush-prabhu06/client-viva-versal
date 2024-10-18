@@ -42,7 +42,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex justify-center mb-4 mt-8 lg:mt-28   ">
-            <div className="items-center mt-6 w-[500px] h-[300px] md:w-[500px] md:h-[500px] overflow-hidden rounded-md z-0">
+            <div className="items-center mt-6 w-full h-full lg:w-[500px] lg:h-[500px] overflow-hidden rounded-xl z-0 px-1">
               <Map />
             </div>
           </div>
