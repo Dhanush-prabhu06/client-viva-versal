@@ -292,10 +292,10 @@ const Dashboard = () => {
         reservation.status === "rejected"
           ? "bg-red-500 "
           : reservation.status === "approved"
-          ? "bg-green-400 "
+          ? "bg-green-500 "
           : reservation.status === "pending"
-          ? "bg-yellow-400 "
-          : "bg-black text-white "
+          ? "bg-yellow-500 "
+          : "bg-slate-800  text-white "
       }`}
                   >
                     <option value="pending">Pending</option>
