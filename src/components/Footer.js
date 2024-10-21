@@ -82,7 +82,7 @@ const Footer = () => {
         {/* Footer Bottom Section */}
 
         <div className="text-center">
-          Copyright &copy;2024 ; Developed by Team
+          Copyright &copy;2024 ; Developed by Prabhu and Team
         </div>
         <br />
       </footer>
