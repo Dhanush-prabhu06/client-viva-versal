@@ -29,11 +29,11 @@ const Landing = () => {
         <GalleryPreview />
       </section>
 
-      <section className="mt-6">
+      <section className="mt-0">
         <Testimonial />
       </section>
 
-      <section className="mt-6">
+      <section className="mt-6 md:mt-0">
         <Faq />
       </section>
     </>

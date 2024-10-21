@@ -317,7 +317,7 @@ const Booking = () => {
                   type="number"
                   id="numberOfPeople"
                   name="numberOfPeople"
-                  placeholder="Enter total number of participants"
+                  placeholder="Total number of guests across all rooms?"
                   value={formData.numberOfPeople}
                   onChange={handleChange}
                   className="w-full p-2 border rounded-lg"

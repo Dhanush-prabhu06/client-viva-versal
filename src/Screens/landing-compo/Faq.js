@@ -70,9 +70,9 @@ const Faq = () => {
           </h2>
         </div>
       </div> */}
-      <br />
+
       <div className="px-4">
-        <div className="lg:flex flex-col items-center py-6">
+        <div className="lg:flex flex-col items-center py-0">
           <h1
             className="uppercase text-green-700 tracking-widest"
             style={{ wordSpacing: "2px" }}
