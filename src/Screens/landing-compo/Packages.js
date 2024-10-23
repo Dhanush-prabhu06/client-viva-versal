@@ -145,7 +145,7 @@ const Packages = () => {
                   <p>{room.price}</p>
                   <a
                     href={room.link}
-                    className="bg-green-700 px-2 py-1 mt-2 inline-block rounded-sm "
+                    className="bg-gradient-to-r from-green-500 to-teal-500 text-white px-2 py-1 mt-2 inline-block rounded-sm "
                   >
                     View More
                   </a>
@@ -171,7 +171,7 @@ const Packages = () => {
                 <p>{room.price}</p>
                 <a
                   href={room.link}
-                  className="bg-green-700 px-2 py-1 mt-2 inline-block rounded-sm"
+                  className="bg-gradient-to-r from-green-500 to-teal-500 text-white px-2 py-1 mt-2 inline-block rounded-sm"
                 >
                   View More
                 </a>
