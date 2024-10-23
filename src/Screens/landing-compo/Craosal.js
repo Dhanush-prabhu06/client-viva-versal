@@ -18,20 +18,39 @@ const images = [
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(1);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [touchStart, setTouchStart] = useState(null);
   const [touchMove, setTouchMove] = useState(null);
+  const [imageLoadStatus, setImageLoadStatus] = useState(
+    Array(images.length).fill(false)
+  ); // Track the load status of each image
+  const [allLoaded, setAllLoaded] = useState(false); // Check if all images are loaded
 
   const totalImages = images.length;
   const totalSlides = totalImages + 2;
 
+  // Function to handle image loading
+  const handleImageLoad = (index) => {
+    setImageLoadStatus((prevStatus) => {
+      const updatedStatus = [...prevStatus];
+      updatedStatus[index] = true;
+      return updatedStatus;
+    });
+  };
+
+  // Watch image load status to determine if all images are loaded
+  useEffect(() => {
+    if (imageLoadStatus.every((status) => status === true)) {
+      setAllLoaded(true); // When all images are loaded
+    }
+  }, [imageLoadStatus]);
+
   const moveCarousel = useCallback(
     (direction) => {
-      if (isTransitioning) return;
+      if (isTransitioning || !allLoaded) return; // Prevent movement if still loading or transitioning
       setIsTransitioning(true);
       setCurrentIndex((prevIndex) => prevIndex + direction);
     },
-    [isTransitioning]
+    [isTransitioning, allLoaded]
   );
 
   const handleTransitionEnd = () => {
@@ -55,7 +74,7 @@ const Carousel = () => {
   };
 
   const handleTouchEnd = useCallback(() => {
-    if (!touchStart || !touchMove) return;
+    if (!touchStart || !touchMove || !allLoaded) return; // Only allow swipe when all images are loaded
 
     const swipeDistance = touchMove - touchStart;
 
@@ -65,30 +84,18 @@ const Carousel = () => {
 
     setTouchStart(null);
     setTouchMove(null);
-  }, [touchMove, touchStart, moveCarousel]);
-
-  useEffect(() => {
-    document.addEventListener("touchmove", handleTouchMove);
-    document.addEventListener("touchend", handleTouchEnd);
-
-    return () => {
-      document.removeEventListener("touchmove", handleTouchMove);
-      document.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, [handleTouchEnd]);
+  }, [touchMove, touchStart, moveCarousel, allLoaded]);
 
   // Auto-slide effect with 3.5-second delay
   useEffect(() => {
+    if (!allLoaded) return; // Only auto-slide when all images are loaded
+
     const intervalId = setInterval(() => {
       moveCarousel(1); // Move to the next slide every 3.5 seconds
     }, 3500);
 
     return () => clearInterval(intervalId); // Cleanup the interval on unmount
-  }, [moveCarousel]);
-
-  const handleImageLoad = () => {
-    setLoading(false);
-  };
+  }, [moveCarousel, allLoaded]);
 
   return (
     <div className="relative w-full overflow-hidden">
@@ -97,7 +104,8 @@ const Carousel = () => {
         {/* Previous Button */}
         <button
           onClick={() => moveCarousel(-1)}
-          className=" bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 z-20 pointer-events-auto md:p-3"
+          className="bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 z-20 pointer-events-auto md:p-3"
+          disabled={!allLoaded} // Disable button until all images are loaded
         >
           &#10094;
         </button>
@@ -106,6 +114,7 @@ const Carousel = () => {
         <button
           onClick={() => moveCarousel(1)}
           className="bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-70 z-20 pointer-events-auto md:p-3"
+          disabled={!allLoaded} // Disable button until all images are loaded
         >
           &#10095;
         </button>
@@ -127,49 +136,34 @@ const Carousel = () => {
       >
         {/* Cloned last image */}
         <div className="flex-none w-full">
-          <div className="relative">
-            {loading && (
-              <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
-            )}
-            <img
-              src={images[totalImages - 1].src}
-              alt={`${totalImages}`}
-              className="object-cover w-full h-[300px] md:h-[500px]"
-              onLoad={handleImageLoad}
-            />
-          </div>
+          <img
+            src={images[totalImages - 1].src}
+            alt={`${totalImages}`}
+            className="object-cover w-full h-[300px] md:h-[500px]"
+            onLoad={() => handleImageLoad(totalImages - 1)} // Handle loading
+          />
         </div>
 
         {images.map((image, index) => (
           <div key={index} className="flex-none w-full">
-            <div className="relative">
-              {loading && (
-                <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
-              )}
-              <img
-                src={image.src}
-                alt={`${index + 1}`}
-                className="object-cover w-full h-[300px] md:h-[500px]"
-                onLoad={handleImageLoad}
-                loading="lazy"
-              />
-            </div>
+            <img
+              src={image.src}
+              alt={`${index + 1}`}
+              className="object-cover w-full h-[300px] md:h-[500px]"
+              onLoad={() => handleImageLoad(index)} // Handle loading
+              loading="lazy"
+            />
           </div>
         ))}
 
         {/* Cloned first image */}
         <div className="flex-none w-full">
-          <div className="relative">
-            {loading && (
-              <div className="absolute inset-0 bg-gray-200 animate-pulse"></div>
-            )}
-            <img
-              src={images[0].src}
-              alt="..."
-              className="object-cover w-full h-[300px] md:h-[500px]"
-              onLoad={handleImageLoad}
-            />
-          </div>
+          <img
+            src={images[0].src}
+            alt="..."
+            className="object-cover w-full h-[300px] md:h-[500px]"
+            onLoad={() => handleImageLoad(0)} // Handle loading
+          />
         </div>
       </div>
     </div>
