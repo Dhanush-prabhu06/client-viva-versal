@@ -7,19 +7,19 @@ const Packages = () => {
       img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/rooms%2FIMG_5755.webp?alt=media&token=f081b5c3-da63-4792-bf7a-3d1d25db3dcc",
       title: "AC Rooms",
       price: "₹3799 Per Stay | Per Pair",
-      link: "/roomDetails",
+      link: "/roomDetails/AcRooms",
     },
     {
       img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/rooms%2FIMG_5730.webp?alt=media&token=ec0ccdb2-afb9-4663-8b04-c60c9d3d9202",
       title: "Non-AC Room",
       price: "₹2999 Per Night | Per Pair",
-      link: "/roomDetails",
+      link: "/roomDetails/Non-Ac-rooms",
     },
     {
       img: "https://media.istockphoto.com/id/1136247293/photo/child-with-mother-in-swimming-pool-holiday-resort.jpg?s=612x612&w=0&k=20&c=zAFudOmgoSbmvitRn-Xi1h1hyvhUyjF-OWWpkFidPS0=",
       title: "Dayout package",
       price: "₹899 per person",
-      link: "/roomDetails",
+      link: "/roomDetails/Dayout-package",
     },
   ];
 

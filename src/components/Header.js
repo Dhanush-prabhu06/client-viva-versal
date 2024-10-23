@@ -27,6 +27,13 @@ const Header = () => {
             {/* <a href="/contact">Contact</a> */}
             <a href="/gallery">Gallery</a>
             <a href="/dashboard">Dashboard</a>
+            <a
+              href="https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/New%20Viva%20Fernleaf%20Resort%20Menu-1.pdf?alt=media&token=f4d8c748-7474-4173-99e8-86f856b232aa" // Update with the actual link to your PDF
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Menu
+            </a>
           </div>
 
           {/* "Book Now" button with gradient */}
@@ -77,6 +84,16 @@ const Header = () => {
           >
             Gallery
           </a>
+
+          <a
+            href="https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/New%20Viva%20Fernleaf%20Resort%20Menu-1.pdf?alt=media&token=f4d8c748-7474-4173-99e8-86f856b232aa" // Update with the actual link to your PDF
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-900 text-2xl font-semibold transition-transform hover:text-teal-600 transform hover:scale-105"
+          >
+            View Menu
+          </a>
+
           <a
             href="/dashboard"
             className="text-gray-900 text-2xl font-semibold transition-transform hover:text-teal-600 transform hover:scale-105"

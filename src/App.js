@@ -26,6 +26,9 @@ import PoolAndActivitiesPhotos from "./Screens/gallery-section/listed-cards/Pool
 import EventsPhotos from "./Screens/gallery-section/listed-cards/EventsPhotos";
 
 import ScrollToTop from "./components/ScrollToTop";
+import AcRooms from "./Screens/room details/AcRooms";
+import NonAcRooms from "./Screens/room details/NonAcRooms";
+import DayOutPackage from "./Screens/room details/DayOutPackage";
 
 function App() {
   return (
@@ -38,13 +41,9 @@ function App() {
           <Route path="/booking" element={<Booking />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/GallerySection" element={<Galary />} />
-          <Route path="/amanities" element={<Amanities />} />
-          <Route path="/crousal" element={<Crousal />} />
-          <Route path="/facilities" element={<Facilities />} />
+
           <Route path="/faq" element={<Faq />} />
-          <Route path="/Packages" element={<Packages />} />
-          <Route path="/welcome" element={<Welcome />} />
-          <Route path="/testimonial" element={<Testimonial />} />
+
           <Route path="/login" element={<Login />} />
           <Route
             path="/dashboard"
@@ -63,6 +62,15 @@ function App() {
             element={<PoolAndActivitiesPhotos />}
           />
           <Route path="/gallery/EventsPhotos" element={<EventsPhotos />} />
+
+          {/* Room details pages */}
+
+          <Route path="/roomDetails/AcRooms" element={<AcRooms />} />
+          <Route path="/roomDetails/Non-Ac-rooms" element={<NonAcRooms />} />
+          <Route
+            path="/roomDetails/Dayout-package"
+            element={<DayOutPackage />}
+          />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
