@@ -18,8 +18,6 @@ import Dashboard from "./admin/Dashboard";
 import Register from "./admin/Register";
 import ProtectedRoute from "./admin/auth/ProtectedRoute"; // Import ProtectedRoute
 import { AuthProvider } from "./admin/auth/AuthProvider"; // Import AuthProvider
-import Footer from "./components/Footer";
-import Header from "./components/Header";
 import RoomDetails from "./Screens/RoomDetails";
 import GallerySection from "./Screens/gallery-section/GallerySection";
 import RoomsPhotos from "./Screens/gallery-section/listed-cards/RoomsPhotos";
@@ -53,8 +51,6 @@ function App() {
             element={<ProtectedRoute element={<Dashboard />} />}
           />
           <Route path="/register" element={<Register />} />
-          <Route path="/footer" element={<Footer />} />
-          <Route path="/header" element={<Header />} />
           <Route path="/roomDetails" element={<RoomDetails />} />
 
           {/* Galary Routing */}

@@ -4,7 +4,6 @@ import "../../assets/styleImports.css"; // Assuming external styles
 
 const GalleryPreview = () => {
   const navigate = useNavigate();
-
   const rooms = [
     {
       img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/Gallary%2FIMG_5723.webp?alt=media&token=286e344a-4ad6-4732-b0b5-3179daca541e",
@@ -15,7 +14,6 @@ const GalleryPreview = () => {
     {
       img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/Gallary%2FAC1%2FIMG_5736.webp?alt=media&token=7ffd50fc-be12-41c5-bc47-957eba9b66fc",
     },
-    // The "View More" card
     {
       img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/Gallary%2FIMG_5708.webp?alt=media&token=fee9eb99-2026-43ee-9e92-9f237188f1bc", // Background image for the "View More" card
       isViewMore: true, // Flag to identify the View More card
@@ -26,14 +24,19 @@ const GalleryPreview = () => {
   const carouselRef = useRef(null);
   const totalItems = rooms.length;
 
+  // State to handle swipe hint visibility
+  const [showSwipeHint, setShowSwipeHint] = useState(true);
+
   // Move carousel programmatically
   const moveCarousel = (direction) => {
     let newIndex = currentIndex + direction;
     if (newIndex < 0) newIndex = totalItems - 1;
     if (newIndex >= totalItems) newIndex = 0;
     setCurrentIndex(newIndex);
+
+    // Scroll to the new position
     const carousel = carouselRef.current;
-    const cardWidth = carousel.clientWidth;
+    const cardWidth = carousel.offsetWidth;
     carousel.scrollTo({
       left: cardWidth * newIndex,
       behavior: "smooth",
@@ -45,45 +48,48 @@ const GalleryPreview = () => {
     navigate("/gallery"); // Redirect to gallery page
   };
 
-  // Handle scroll for updating current index
-  const debounceTimer = useRef(null);
-
+  // Update current index based on scroll position
   const handleScroll = useCallback(() => {
     const carousel = carouselRef.current;
-    const cardWidth = carousel.clientWidth;
+    const cardWidth = carousel.offsetWidth;
     const scrollLeft = carousel.scrollLeft;
     const newIndex = Math.round(scrollLeft / cardWidth);
-
-    if (debounceTimer.current) {
-      clearTimeout(debounceTimer.current);
-    }
-
-    debounceTimer.current = setTimeout(() => {
-      if (Math.abs(newIndex - currentIndex) > 0) {
-        setCurrentIndex(newIndex);
-      }
-    }, 200); // 200ms debounce delay
-  }, [currentIndex]);
+    setCurrentIndex(newIndex);
+  }, []);
 
   useEffect(() => {
     const carousel = carouselRef.current;
 
     if (carousel) {
       carousel.addEventListener("scroll", handleScroll);
+      // Auto-scroll slightly to hint that the carousel is scrollable
+      setTimeout(() => {
+        carousel.scrollTo({
+          left: carousel.offsetWidth * 0.2,
+          behavior: "smooth",
+        });
+      }, 1000); // Delay before auto-scroll
     }
+
+    const hintTimeout = setTimeout(() => setShowSwipeHint(false), 3000); // Hide swipe hint after 3 seconds
 
     return () => {
       if (carousel) {
         carousel.removeEventListener("scroll", handleScroll);
       }
-      if (debounceTimer.current) {
-        clearTimeout(debounceTimer.current);
-      }
+      clearTimeout(hintTimeout);
     };
   }, [handleScroll]);
 
   return (
-    <div className="relative w-full mt-3  md:mt-10">
+    <div className="relative w-full mt-3 md:mt-10">
+      {/* Swipe hint overlay */}
+      {showSwipeHint && (
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center z-10">
+          <span className="text-white text-xl">Swipe to view more</span>
+        </div>
+      )}
+
       {/* Header Section */}
       <div className="text-center mb-6">
         <h1 className="text-base tracking-widest text-green-700 pb-2">
@@ -101,7 +107,7 @@ const GalleryPreview = () => {
           {/* Left Arrow */}
           <button
             onClick={() => moveCarousel(-1)}
-            className="absolute left-0 transform translate-x-4 text-green-700 text-5xl"
+            className="absolute left-0 transform translate-x-4 text-green-700 text-5xl animate-bounce-left"
           >
             &#8592;
           </button>
@@ -114,7 +120,7 @@ const GalleryPreview = () => {
           {/* Right Arrow */}
           <button
             onClick={() => moveCarousel(1)}
-            className="absolute right-0 transform -translate-x-4 text-green-700 text-5xl"
+            className="absolute right-0 transform -translate-x-4 text-green-700 text-5xl animate-bounce-right"
           >
             &#8594;
           </button>
@@ -138,7 +144,7 @@ const GalleryPreview = () => {
             >
               {room.isViewMore ? (
                 <div
-                  // Div to adjest the view more mobile section
+                  // Div to adjust the view more mobile section
                   className="relative bg-cover bg-center rounded-lg shadow-lg overflow-hidden cursor-pointer h-auto"
                   onClick={handleViewMoreClick}
                   style={{
@@ -158,7 +164,6 @@ const GalleryPreview = () => {
                 </div>
               ) : (
                 <div
-                  // Div to adjest the height of image in the mobile view
                   className="bg-white rounded-lg shadow-lg overflow-hidden"
                   style={{ height: "28rem" }} // Adjusted card height
                 >

@@ -6,7 +6,7 @@ const Packages = () => {
     {
       img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/rooms%2FIMG_5755.webp?alt=media&token=f081b5c3-da63-4792-bf7a-3d1d25db3dcc",
       title: "AC Rooms",
-      price: "₹3799 Per Night | Per Pair",
+      price: "₹3799 Per Stay | Per Pair",
       link: "/roomDetails",
     },
     {
