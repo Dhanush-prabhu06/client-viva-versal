@@ -11,8 +11,8 @@ const Footer = () => {
         <div className="md:flex flex-row justify-evenly text-white bg-black md:text-xl text-sm h-auto">
           {/* Contact Info and Social Links Section */}
           <div className="flex flex-col justify-evenly md:space-y-4 space-y-6 ">
-            <div className="flex flex-row lg:flex-col md:justify-evenly w-[100%] space-x-20 lg:space-x-0 lg:space-y-48  mt-16  justify-center ">
-              <div className="flex flex-col space-y-2 lg:mt-10">
+            <div className="flex flex-row md:flex-col md:justify-evenly w-[100%] space-x-20 md:space-x-0 md:space-y-48  mt-16  justify-center ">
+              <div className="flex flex-col space-y-2 md:mt-10">
                 <div className=" font-bold ">Our Phone Number</div>
                 <a
                   href="tel:+919886009778" // tel: protocol for phone call
