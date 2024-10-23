@@ -173,14 +173,14 @@ const DayOutPackage = () => {
       <section>
         <div className=" relative mx-auto">
           <img
-            src="https://i.pinimg.com/originals/bc/5b/78/bc5b780990cd800137855a5b7f121156.jpg"
+            src="https://media.istockphoto.com/id/1136247293/photo/child-with-mother-in-swimming-pool-holiday-resort.jpg?s=612x612&w=0&k=20&c=zAFudOmgoSbmvitRn-Xi1h1hyvhUyjF-OWWpkFidPS0="
             className=" w-full object-cover overflow-x-hidden"
             alt="..."
           />
           <div class="absolute inset-0  bg-gray-700  opacity-60 rounded-md"></div>
           <div class="absolute inset-0 flex items-center justify-center">
             <h2 class="text-white text-5xl font-serif">
-              Room Details
+              Dayout Package
               <br />
             </h2>
           </div>
