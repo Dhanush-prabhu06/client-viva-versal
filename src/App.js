@@ -5,13 +5,9 @@ import Home from "./Screens/Home";
 import Booking from "./Screens/Booking";
 import Contact from "./Screens/Contact";
 import Galary from "./Screens/Galary";
-import Packages from "./Screens/landing-compo/Packages";
-import Amanities from "./Screens/landing-compo/Amanities";
-import Crousal from "./Screens/landing-compo/Craosal";
-import Facilities from "./Screens/landing-compo/Facilities";
+
 import Faq from "./Screens/landing-compo/Faq";
-import Welcome from "./Screens/landing-compo/Welcome";
-import Testimonial from "./Screens/landing-compo/Testimonial";
+
 import Landing from "./Screens/Landing";
 import Login from "./admin/Login";
 import Dashboard from "./admin/Dashboard";

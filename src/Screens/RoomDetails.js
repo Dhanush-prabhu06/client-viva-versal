@@ -2,8 +2,6 @@ import React, { useRef, useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom"; // Assuming you're using react-router for navigation
 import "../assets/styleImports.css";
 
-import Packages from "./landing-compo/Packages";
-
 const RoomDetails = () => {
   const navigate = useNavigate();
 
