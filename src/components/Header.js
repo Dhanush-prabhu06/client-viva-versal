@@ -32,7 +32,7 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              View Menu
+              Food Menu
             </a>
           </div>
 
@@ -91,7 +91,7 @@ const Header = () => {
             rel="noopener noreferrer"
             className="text-gray-900 text-2xl font-semibold transition-transform hover:text-teal-600 transform hover:scale-105"
           >
-            View Menu
+            Food Menu
           </a>
 
           <a
