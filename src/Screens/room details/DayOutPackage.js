@@ -7,17 +7,17 @@ const DayOutPackage = () => {
 
   const RoomspPhotos = [
     {
-      img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/Gallary%2FAC1%2FIMG_5730.webp?alt=media&token=75952d2d-ca3f-4e70-857a-42361ebab9f7",
+      img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/Gallary%2FIMG_5723.webp?alt=media&token=286e344a-4ad6-4732-b0b5-3179daca541e",
     },
     {
-      img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/Gallary%2FAC2%2FIMG_5755.webp?alt=media&token=39aea903-72d9-45d8-a5da-6a2974e32151",
+      img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/Gallary%2FIMG_5777.webp?alt=media&token=10ed6d0d-becc-4728-88e1-c7db8c00d2d5",
     },
     {
-      img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/Gallary%2FAC1%2FIMG_5736.webp?alt=media&token=7ffd50fc-be12-41c5-bc47-957eba9b66fc",
+      img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/Gallary%2FIMG_5770.webp?alt=media&token=8c90ad86-5fb9-4076-affe-15e106f564d5",
     },
     // The "View More" card
     {
-      img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/Gallary%2FAC2%2FIMG_5751.webp?alt=media&token=b3316e41-e492-46d9-b47e-7f45761e714a", // Background image for the "View More" card
+      img: "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/Gallary%2FIMG_5779.webp?alt=media&token=ec7ef6e5-76e0-48dc-9eb7-8bcf4cfec0cd", // Background image for the "View More" card
       isViewMore: true, // Flag to identify the View More card
     },
   ];
@@ -54,7 +54,7 @@ const DayOutPackage = () => {
 
   // Handle the View More button click
   const handleViewMoreClick1 = () => {
-    navigate("/gallery/RoomsPhotos"); // Redirect to gallery page
+    navigate("/gallery/PoolAndActivitiesPhotos"); // Redirect to gallery page
   };
 
   // Handle scroll for updating current index

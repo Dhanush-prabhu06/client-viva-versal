@@ -23,14 +23,14 @@ const AcRooms = () => {
   ];
 
   const amenities = [
-    { icon: "🌄", text: "Balcony with Mountain View" },
+    { icon: "🌄", text: "Pool View" },
     { icon: "🛏️", text: "King Size Bed" },
     { icon: "❄️", text: "Air Conditioned Cottages" },
     { icon: "📺", text: "4K LED high-definition TV" },
     { icon: "📶", text: "Free WIFI (Unlimited)" },
     { icon: "🔒", text: "In Room Safe" },
     { icon: "👗", text: "Wardrobe" },
-    { icon: "🛁", text: "Bath Room" },
+    { icon: "🛁", text: "Private Bath Room" },
     { icon: "💧", text: "Hot & Cold Water" },
     { icon: "🧺", text: "Laundry Service" },
     { icon: "🧗", text: "Rope Activity" },
