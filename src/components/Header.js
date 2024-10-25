@@ -29,7 +29,6 @@ const Header = () => {
             <a href="/dashboard">Dashboard</a>
             <a
               href="/menu" // Update with the actual link to your PDF
-              target="_blank"
               rel="noopener noreferrer"
             >
               Food Menu
@@ -87,7 +86,6 @@ const Header = () => {
 
           <a
             href="/menu" // Update with the actual link to your PDF
-            target="_blank"
             rel="noopener noreferrer"
             className="text-gray-900 text-2xl font-semibold transition-transform hover:text-teal-600 transform hover:scale-105"
           >

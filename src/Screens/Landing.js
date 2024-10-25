@@ -40,7 +40,6 @@ const Landing = () => {
           {/* View Menu Button */}
           <a
             href="/menu"
-            target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-3 bg-gradient-to-r from-blue-500 to-teal-400 text-white text-lg font-semibold rounded-full shadow-lg hover:from-blue-600 hover:to-teal-500 transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-teal-300 focus:ring-opacity-50"
           >
