@@ -26,6 +26,8 @@ import AcRooms from "./Screens/room details/AcRooms";
 import NonAcRooms from "./Screens/room details/NonAcRooms";
 import DayOutPackage from "./Screens/room details/DayOutPackage";
 
+import Menu from "./Screens/Menu";
+
 function App() {
   return (
     <AuthProvider>
@@ -37,6 +39,7 @@ function App() {
           <Route path="/booking" element={<Booking />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/GallerySection" element={<Galary />} />
+          <Route path="/menu" element={<Menu />} />
 
           <Route path="/faq" element={<Faq />} />
 
