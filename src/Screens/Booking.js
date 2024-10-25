@@ -53,7 +53,7 @@ const Booking = () => {
       return;
     }
 
-    if (name === "checkoutDate" && value <= formData.checkinDate) {
+    if (name === "checkoutDate" && value > formData.checkinDate) {
       setErrorMessage("Checkout date must be after check-in date.");
       return;
     }
