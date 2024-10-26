@@ -417,8 +417,8 @@ const NonAcRooms = () => {
               </h3>
               <ul className="list-disc list-inside text-gray-700 ml-4 lg:ml-6">
                 <li>
-                  An extra bed can be arranged for an additional fee of ₹1000
-                  per person, including access to all standard amenities.
+                  An extra bed can be arranged upon request, providing access to
+                  all standard amenities for each additional guest
                 </li>
               </ul>
             </div>
