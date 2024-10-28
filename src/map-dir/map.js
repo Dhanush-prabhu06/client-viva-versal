@@ -35,7 +35,7 @@ const Map = () => {
 
   return (
     <div className="flex justify-center items-center">
-      <LoadScript googleMapsApiKey="AIzaSyCAn1AoU-SBgUc1xwceXzXhhnKP3z_HeLY">
+      <LoadScript googleMapsApiKey="AIzaSyBC6jH0EHIKMEck4lNROeKGExDzDHlfDkQ">
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={centerLocation}
