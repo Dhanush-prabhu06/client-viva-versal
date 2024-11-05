@@ -81,9 +81,7 @@ const Footer = () => {
 
         {/* Footer Bottom Section */}
 
-        <div className="text-center">
-          Copyright &copy;2024 ; Developed by Prabhu and Team
-        </div>
+        <div className="text-center">Copyright &copy;2024 </div>
         <br />
       </footer>
     </>
