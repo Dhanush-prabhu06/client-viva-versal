@@ -26,13 +26,14 @@ const Header = () => {
             <a href="/">Home</a>
             {/* <a href="/contact">Contact</a> */}
             <a href="/gallery">Gallery</a>
-            <a href="/dashboard">Dashboard</a>
+
             <a
               href="/menu" // Update with the actual link to your PDF
               rel="noopener noreferrer"
             >
               Food Menu
             </a>
+            <a href="/dashboard">Dashboard</a>
           </div>
 
           {/* "Book Now" button with gradient */}

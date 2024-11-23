@@ -134,7 +134,8 @@ const Facilities = () => {
         <FaBicycle className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl mb-2 text-gray-800" />
       ),
       title: "Road Cycle",
-      image: "https://via.placeholder.com/300?text=Road+Cycle",
+      image:
+        "https://firebasestorage.googleapis.com/v0/b/new-viva-fernleaf-resort.appspot.com/o/Gallary%2FRoap%20Activities%2FIMG_5943.webp?alt=media&token=0883cc28-bddb-49bc-ac00-7fe3dd17166a",
     },
   ];
 
