@@ -33,7 +33,7 @@ const Map = () => {
     return () => clearInterval(bounceInterval); // Cleanup when component unmounts
   }, []);
 
-  console.log(process.env.MAP_KEY);
+  // console.log(process.env.MAP_KEY);
 
   return (
     <div className="flex justify-center items-center">
