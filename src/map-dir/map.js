@@ -33,9 +33,11 @@ const Map = () => {
     return () => clearInterval(bounceInterval); // Cleanup when component unmounts
   }, []);
 
+  console.log(process.env.MAP_KEY);
+
   return (
     <div className="flex justify-center items-center">
-      <LoadScript googleMapsApiKey="AIzaSyBC6jH0EHIKMEck4lNROeKGExDzDHlfDkQ">
+      <LoadScript googleMapsApiKey="AIzaSyCNuNH8t_kGXe1FEH8FjkGvRPYnzTGRx7Y">
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={centerLocation}

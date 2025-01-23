@@ -77,6 +77,8 @@ const Booking = () => {
     setFormData({ ...formData, [name]: formattedDate });
   };
 
+  const [loading, setLoading] = useState(false); // Add loading state
+
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -89,6 +91,8 @@ const Booking = () => {
       setErrorMessage("Please enter a valid phone number (10 digits).");
       return;
     }
+
+    setLoading(true); // Set loading to true when processing starts
 
     const collectionName =
       reservationType === "rooms"
@@ -144,6 +148,8 @@ const Booking = () => {
       });
     } catch (error) {
       console.error("Error adding document: ", error);
+    } finally {
+      setLoading(false); // Reset loading to false when processing ends
     }
   };
 
@@ -439,9 +445,14 @@ const Booking = () => {
 
           <button
             type="submit"
-            className="w-full py-3 px-6 bg-green-500 text-white font-bold rounded-full shadow-lg hover:bg-green-600 transition-all duration-300"
+            className={`w-full py-3 px-6 ${
+              loading
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-green-500 hover:bg-green-600"
+            } text-white font-bold rounded-full shadow-lg transition-all duration-300`}
+            disabled={loading} // Disable button when loading
           >
-            Confirm Reservation
+            {loading ? "Reserving..." : "Confirm Reservation"}
           </button>
         </form>
       )}
