@@ -33,11 +33,11 @@ const Map = () => {
     return () => clearInterval(bounceInterval); // Cleanup when component unmounts
   }, []);
 
-  // console.log(process.env.MAP_KEY);
+  // console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
 
   return (
     <div className="flex justify-center items-center">
-      <LoadScript googleMapsApiKey="AIzaSyCNuNH8t_kGXe1FEH8FjkGvRPYnzTGRx7Y">
+      <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={centerLocation}

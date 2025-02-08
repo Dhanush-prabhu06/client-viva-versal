@@ -1,16 +1,15 @@
-// src/firebase.js
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAFU_-5MVgq1K-KKZsZ-zC65zznFbjDeCY",
-  authDomain: "new-viva-fernleaf-resort.firebaseapp.com",
-  projectId: "new-viva-fernleaf-resort",
-  storageBucket: "new-viva-fernleaf-resort.appspot.com",
-  messagingSenderId: "733966235277",
-  appId: "1:733966235277:web:23078007d67ef0af2854c4",
-  measurementId: "G-WMYKM612RL",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
